@@ -83,9 +83,10 @@ namespace SimplexLab.Fixed
         {
             if (a.IsNaN() || b.IsNaN()) { r = NaN; return true; }
             if (a.IsInfinity()) { r = NaN; return true; }
+            if (b.IsZero()) { r = NaN; return true; }
             if (a.IsMin()) { r = Zero; return true; }
             if (b.IsNegativeOne()) { r = Zero; return true; }
-            if (b.IsMinMax() || b.IsInfinity()) { r = new Fixed32(a); return true; }
+            if (b.IsMinMax() || b.IsInfinity()) { r = FromRaw(a); return true; }
 
             r = Zero;
             return false;

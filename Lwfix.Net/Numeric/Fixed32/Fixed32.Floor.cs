@@ -26,8 +26,13 @@ namespace SimplexLab.Fixed
         {
             if (IsNaN()) return NaN;
             if (IsNegativeInfinity()) return NegativeInfinity;
+            if (IsPositiveInfinity()) return PositiveInfinity;
 
-            return FromRaw(rawvalue & INTEGRAL_MASK);
+            var result = rawvalue & INTEGRAL_MASK;
+            // MinValue的rawvalue & INTEGRAL_MASK会得到NaN的rawvalue，需要特殊处理
+            if (result == NaN.rawvalue) return MinValue;
+
+            return FromRaw(result);
         }
 
         /// <summary>

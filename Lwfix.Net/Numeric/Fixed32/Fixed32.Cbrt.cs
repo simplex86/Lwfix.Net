@@ -20,7 +20,14 @@ namespace SimplexLab.Fixed
         /// </remarks>
         public Fixed32 Cbrt()
         {
-            return Exp(Log() / 3);
+            if (IsNaN()) return NaN;
+            if (IsZero()) return Zero;
+
+            // 负数的立方根：∛(-x) = -∛(x)
+            var isNegative = IsNegative();
+            var absValue = isNegative ? -this : this;
+            var absResult = (absValue.Log() / 3).Exp();
+            return isNegative ? -absResult : absResult;
         }
 
         /// <summary>

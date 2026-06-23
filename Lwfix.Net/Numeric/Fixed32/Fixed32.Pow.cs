@@ -93,6 +93,11 @@ namespace SimplexLab.Fixed
         /// </remarks>
         public Fixed32 Pow(Fixed32 n)
         {
+            if (PreprocessLog(rawvalue, n.rawvalue, out var r))
+            {
+                return r;
+            }
+
             if (n.IsFractional())
             {
                 if (IsNegative()) return NaN;
@@ -131,6 +136,8 @@ namespace SimplexLab.Fixed
             // 负数的小数次幂，等于NaN
             if (m < 0 && n.IsFractional()) { r = NaN; return true; }
             if (m.IsZero()) { r = (n < 0) ? PositiveInfinity : Zero; return true; }
+            // 1的任何次幂都等于1
+            if (m.IsOne()) { r = One; return true; }
             if (m.IsNegativeOne() && (n.IsInfinity())) { r = One; return true; }
             if (m.IsPureFractional())
             {

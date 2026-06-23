@@ -93,7 +93,7 @@ namespace SimplexLab.Fixed
         {
             if (value < NegativeOne || value > One)
             {
-                throw new ArgumentOutOfRangeException("Must between NegativeOne and One", "value");
+                throw new ArgumentOutOfRangeException("value", "Must between NegativeOne and One");
             }
 
             if (value.IsZero()) return Half_PI;

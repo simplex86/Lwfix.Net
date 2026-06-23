@@ -10,12 +10,12 @@ namespace SimplexLab.Fixed
         /// 0.48 常量
         /// <para>用于SmoothDamp计算的系数</para>
         /// </summary>
-        private readonly static Fixed32 P48  = FromRaw(0);
+        private readonly static Fixed32 P48  = FromRaw(2061584301);
         /// <summary>
         /// 0.235 常量
         /// <para>用于SmoothDamp计算的系数</para>
         /// </summary>
-        private readonly static Fixed32 P235 = FromRaw(0);
+        private readonly static Fixed32 P235 = FromRaw(1009317315);
 
         /// <summary>
         /// 平滑阻尼

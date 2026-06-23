@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+namespace SimplexLab.Fixed
 {
     internal static class ExInt64
     {
@@ -23,13 +23,23 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="rawvalue"></param>
         /// <returns></returns>
         public static bool IsNegativeOne(this long rawvalue)
         {
             return rawvalue == Fixed32.NegativeOne.rawvalue;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="rawvalue"></param>
+        /// <returns></returns>
+        public static bool IsOne(this long rawvalue)
+        {
+            return rawvalue == Fixed32.One.rawvalue;
         }
 
         /// <summary>

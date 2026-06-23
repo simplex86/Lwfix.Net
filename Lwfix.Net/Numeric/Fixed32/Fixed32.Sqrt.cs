@@ -22,7 +22,7 @@ namespace SimplexLab.Fixed
         /// <list type="bullet">
         /// <item>如果输入是NaN，返回NaN</item>
         /// <item>如果输入是正无穷，返回正无穷</item>
-        /// <item>如果输入是0，返回NaN</item>
+        /// <item>如果输入是0，返回0</item>
         /// </list>
         /// 注意：
         /// <list type="bullet">
@@ -34,7 +34,8 @@ namespace SimplexLab.Fixed
         {
             if (IsNaN()) return NaN;
             if (IsPositiveInfinity()) return PositiveInfinity;
-            if (IsZero()) return NaN;
+            if (IsZero()) return Zero;
+            if (IsNegative()) return NaN;
 
             var val = (ulong)rawvalue;
             var bit = 1UL << (TOTAL_BITS - 2);
@@ -90,7 +91,7 @@ namespace SimplexLab.Fixed
         /// <list type="bullet">
         /// <item>如果输入是NaN，返回NaN</item>
         /// <item>如果输入是正无穷，返回正无穷</item>
-        /// <item>如果输入是0，返回NaN</item>
+        /// <item>如果输入是0，返回0</item>
         /// </list>
         /// 注意：
         /// <list type="bullet">

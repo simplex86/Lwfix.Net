@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+namespace SimplexLab.Fixed
 {
     /// <summary>
     /// 4x4矩阵 - 运算符
@@ -91,7 +91,7 @@
             var m41 = lhs.M41 * rhs.M11 + lhs.M42 * rhs.M21 + lhs.M43 * rhs.M31 + lhs.M44 * rhs.M41;
             var m42 = lhs.M41 * rhs.M12 + lhs.M42 * rhs.M22 + lhs.M43 * rhs.M32 + lhs.M44 * rhs.M42;
             var m43 = lhs.M41 * rhs.M13 + lhs.M42 * rhs.M23 + lhs.M43 * rhs.M33 + lhs.M44 * rhs.M43;
-            var m44 = lhs.M41 * rhs.M13 + lhs.M42 * rhs.M24 + lhs.M43 * rhs.M34 + lhs.M44 * rhs.M44;
+            var m44 = lhs.M41 * rhs.M14 + lhs.M42 * rhs.M24 + lhs.M43 * rhs.M34 + lhs.M44 * rhs.M44;
 
             return new FMatrix4x4<T>(m11, m12, m13, m14,
                                      m21, m22, m23, m24,

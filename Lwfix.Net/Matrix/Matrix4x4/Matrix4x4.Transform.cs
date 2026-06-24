@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+namespace SimplexLab.Fixed
 {
     /// <summary>
     /// 4x4矩阵 - 变换
@@ -419,7 +419,7 @@
         /// <returns></returns>
         public static FMatrix4x4<T> TRS(FVector3<T> translation, FQuaternion<T> rotation, FVector3<T> scale)
         {
-            return Translate(translation) * Rotate(rotation) * Scale(scale);
+            return Scale(scale) * Rotate(rotation) * Translate(translation);
         }
 
         public static FMatrix4x4<T> AngleAxis(T angle, FVector3<T> axis)

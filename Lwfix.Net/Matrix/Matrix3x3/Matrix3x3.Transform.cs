@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+namespace SimplexLab.Fixed
 {
     /// <summary>
     /// 3x3矩阵 - 变换
@@ -62,7 +62,7 @@
             var t = Translate(x, y);
             var r = Rotate(radians);
 
-            return t * r;
+            return r * t;
         }
 
         /// <summary>
@@ -80,7 +80,7 @@
             var r = Rotate(radians);
             var s = Scale(sx, sy);
 
-            return t * r * s;
+            return s * r * t;
         }
 
         /// <summary>

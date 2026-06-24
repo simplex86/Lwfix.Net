@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+namespace SimplexLab.Fixed
 {
     /// <summary>
     /// 3x3矩阵
@@ -68,7 +68,7 @@
             var m23 = lhs.M21 * rhs.M13 + lhs.M22 * rhs.M23 + lhs.M23 * rhs.M33;
             var m31 = lhs.M31 * rhs.M11 + lhs.M32 * rhs.M21 + lhs.M33 * rhs.M31;
             var m32 = lhs.M31 * rhs.M12 + lhs.M32 * rhs.M22 + lhs.M33 * rhs.M32;
-            var m33 = lhs.M31 * rhs.M13 + lhs.M32 * rhs.M23 + lhs.M13 * rhs.M33;
+            var m33 = lhs.M31 * rhs.M13 + lhs.M32 * rhs.M23 + lhs.M33 * rhs.M33;
 
             return new FMatrix3x3<T>(m11, m12, m13,
                                      m21, m22, m23,

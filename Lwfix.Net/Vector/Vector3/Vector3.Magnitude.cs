@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+namespace SimplexLab.Fixed
 {
     /// <summary>
     /// 三维向量 - 大小
@@ -23,7 +23,7 @@
             {
                 var x = vector.X / magnitude * maxMagnitude;
                 var y = vector.Y / magnitude * maxMagnitude;
-                var z = vector.Y / magnitude * maxMagnitude;
+                var z = vector.Z / magnitude * maxMagnitude;
 
                 return new FVector3<T>(x, y, z);
             }

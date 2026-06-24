@@ -24,6 +24,7 @@ namespace SimplexLab.Fixed
         private FRandom()
         {
             randoms.Add(typeof(Fixed32), new FRandom32());
+            randoms.Add(typeof(Fixed64), new FRandom64());
         }
 
         /// <summary>

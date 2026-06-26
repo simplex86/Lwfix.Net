@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+﻿namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数 - 设置

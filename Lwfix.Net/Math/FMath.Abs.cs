@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+﻿namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 数学库 - 绝对值

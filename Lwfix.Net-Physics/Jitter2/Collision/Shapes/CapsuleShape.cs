@@ -5,10 +5,10 @@
  */
 
 using System;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// Represents a capsule shape defined by a radius and the length of its cylindrical section.

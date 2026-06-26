@@ -1,6 +1,6 @@
 using System;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// <summary>
 /// Factory methods for building Matrix4 transforms. All matrices use the

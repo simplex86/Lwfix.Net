@@ -1,8 +1,8 @@
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 using Xunit;
 using System;
 
-namespace LwfixTest.Fixed.Quaternion
+namespace SimplexLab.Lwfix.Test.Quaternion
 {
     public partial class TQuaternion
     {

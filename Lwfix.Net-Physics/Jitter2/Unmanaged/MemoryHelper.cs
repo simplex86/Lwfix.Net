@@ -7,7 +7,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace SimplexLab.Fixed.Physics.Unmanaged;
+namespace SimplexLab.Lwfix.Physics.Unmanaged;
 
 /// <summary>
 /// Provides helper methods for allocating and managing unmanaged memory.

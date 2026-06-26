@@ -7,11 +7,11 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed;
-using Vertex = SimplexLab.Fixed.Physics.Collision.MinkowskiDifference.Vertex;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix;
+using Vertex = SimplexLab.Lwfix.Physics.Collision.MinkowskiDifference.Vertex;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Provides collision detection algorithms for convex shapes defined by support functions.

@@ -1,6 +1,6 @@
 using System;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     internal static class ExInt128
     {

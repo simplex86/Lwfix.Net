@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 随机数

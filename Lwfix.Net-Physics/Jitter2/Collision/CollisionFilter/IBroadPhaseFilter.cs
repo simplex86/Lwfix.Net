@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Provides a hook into the broadphase collision detection pipeline.

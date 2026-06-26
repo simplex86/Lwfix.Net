@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+﻿namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 三维向量 - 距离

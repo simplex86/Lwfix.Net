@@ -28,7 +28,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 internal enum TraceCategory : ushort
 {

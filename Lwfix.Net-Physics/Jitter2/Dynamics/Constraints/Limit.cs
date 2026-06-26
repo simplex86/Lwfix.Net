@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 /// <summary>
 /// Represents an angular limit defined by a minimum and maximum angle.

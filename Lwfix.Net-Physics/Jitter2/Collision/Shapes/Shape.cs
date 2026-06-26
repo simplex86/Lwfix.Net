@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// The main entity of the collision system. Implements <see cref="ISupportMappable"/> for

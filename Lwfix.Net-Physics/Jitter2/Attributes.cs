@@ -6,7 +6,7 @@
 
 using System;
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 /// <summary>
 /// Enum representing reference frames.

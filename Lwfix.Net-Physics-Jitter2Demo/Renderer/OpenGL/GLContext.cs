@@ -1,6 +1,6 @@
 using Silk.NET.OpenGL;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// <summary>
 /// Holds the global Silk.NET GL instance. Set once during window initialization;

@@ -1,4 +1,4 @@
-using SimplexLab.Fixed.Physics.SoftBodies;
+using SimplexLab.Lwfix.Physics.SoftBodies;
 
 namespace LwfixTest.Physics.Jitter2.Constraints;
 

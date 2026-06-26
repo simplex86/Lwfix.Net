@@ -5,10 +5,10 @@
  */
 
 using System;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Provides built-in primitive support-mapped query types and helper methods for constructing them.

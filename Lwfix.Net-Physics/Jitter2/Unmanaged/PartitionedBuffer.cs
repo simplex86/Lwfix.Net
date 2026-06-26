@@ -7,9 +7,9 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using SimplexLab.Fixed.Physics.Parallelization;
+using SimplexLab.Lwfix.Physics.Parallelization;
 
-namespace SimplexLab.Fixed.Physics.Unmanaged;
+namespace SimplexLab.Lwfix.Physics.Unmanaged;
 
 /// <summary>
 /// Handle for an unmanaged object stored in a <see cref="PartitionedBuffer{T}"/>.

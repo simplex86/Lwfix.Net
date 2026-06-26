@@ -7,11 +7,11 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.Dynamics.Constraints;
-using IslandSet = SimplexLab.Fixed.Physics.DataStructures.PartitionedSet<SimplexLab.Fixed.Physics.Collision.Island>;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.Dynamics.Constraints;
+using IslandSet = SimplexLab.Lwfix.Physics.DataStructures.PartitionedSet<SimplexLab.Lwfix.Physics.Collision.Island>;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Helper class to update islands. Methods must not be called concurrently for the same world.

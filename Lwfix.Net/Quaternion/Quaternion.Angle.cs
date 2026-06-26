@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using System;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数 - 角

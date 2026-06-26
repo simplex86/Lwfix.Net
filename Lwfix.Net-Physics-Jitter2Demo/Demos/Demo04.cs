@@ -1,7 +1,7 @@
-using static SimplexLab.Fixed.Physics.JDemo.Common;
-using SimplexLab.Fixed.Physics.LinearMath;
+using static SimplexLab.Lwfix.Physics.JDemo.Common;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.JDemo;
+namespace SimplexLab.Lwfix.Physics.JDemo;
 
 public class Demo04 : IDemo
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 [StructLayout(LayoutKind.Sequential)]
 internal struct Instance

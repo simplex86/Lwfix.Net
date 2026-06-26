@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 定点数 - Unity风格数学方法

@@ -1,7 +1,7 @@
 ﻿using Xunit;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 
-namespace LwfixTest.Fixed.Numerics
+namespace SimplexLab.Lwfix.Test.Numerics
 {
     /// <summary>
     /// 除法 - 常规，检验准确性

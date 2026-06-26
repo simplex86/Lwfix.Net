@@ -7,11 +7,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 /// <summary>
 /// Limits the relative tilt between two bodies, removing one angular degree of freedom when active.

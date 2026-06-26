@@ -5,9 +5,9 @@
  */
 
 using System;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 /// <summary>
 /// Constructs a hinge joint utilizing a <see cref="HingeAngle"/>, a <see cref="BallSocket"/>, and an optional <see cref="AngularMotor"/>.

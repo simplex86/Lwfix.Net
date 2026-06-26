@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// Represents the abstract base class for shapes that can be attached to a rigid body.

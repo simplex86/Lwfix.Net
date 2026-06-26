@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// A hash set implementation which stores unordered pairs of (int, int) values.
@@ -237,7 +237,7 @@ internal unsafe class PairHashSet : IEnumerable<PairHashSet.Pair>
         return false;
     }
 
-    private SimplexLab.Fixed.Physics.Parallelization.ReaderWriterLock rwLock;
+    private SimplexLab.Lwfix.Physics.Parallelization.ReaderWriterLock rwLock;
 
     /// <summary>
     /// Attempts to add a pair to the hash set in a thread-safe manner.

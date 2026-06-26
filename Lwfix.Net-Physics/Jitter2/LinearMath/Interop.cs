@@ -8,7 +8,7 @@ using System;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace SimplexLab.Fixed.Physics.LinearMath;
+namespace SimplexLab.Lwfix.Physics.LinearMath;
 
 /// <summary>
 /// Interop helpers for JVector and JQuaternion.

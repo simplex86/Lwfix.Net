@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// <summary>
 /// Procedural gradient skybox. The original JitterDemo drew a cube into a

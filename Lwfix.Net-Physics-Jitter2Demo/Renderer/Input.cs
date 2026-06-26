@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Silk.NET.Input;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// <summary>
 /// Keyboard wrapper around Silk.NET.Input.IKeyboard with edge detection

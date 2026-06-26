@@ -5,7 +5,7 @@ using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
 using Silk.NET.OpenGL.Extensions.ImGui;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 public struct CreationSettings
 {

@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 /// <summary>
 /// Defines an interface for objects that can be debug-drawn.

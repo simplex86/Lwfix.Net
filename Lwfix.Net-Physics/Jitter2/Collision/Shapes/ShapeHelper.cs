@@ -6,11 +6,11 @@
 
 using System;
 using System.Collections.Generic;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// Provides helper methods for calculating the properties of implicitly defined shapes.
@@ -142,7 +142,7 @@ public static class ShapeHelper
         return Tessellate(new VertexSupportMap(vertices), subdivisions);
     }
 
-    /// <inheritdoc cref="Tessellate(System.ReadOnlySpan{SimplexLab.Fixed.Physics.LinearMath.JVector}, int)"/>
+    /// <inheritdoc cref="Tessellate(System.ReadOnlySpan{SimplexLab.Lwfix.Physics.LinearMath.JVector}, int)"/>
     public static List<JTriangle> Tessellate(IEnumerable<JVector> vertices, int subdivisions = 3)
     {
         return Tessellate(new VertexSupportMap(SpanHelper.AsReadOnlySpan(vertices, out _)), subdivisions);

@@ -7,7 +7,7 @@
 using System;
 using System.Diagnostics;
 
-namespace SimplexLab.Fixed.Physics.Parallelization;
+namespace SimplexLab.Lwfix.Physics.Parallelization;
 
 /// <summary>
 /// Provides methods and structures for parallel batch processing within the Jitter physics engine.

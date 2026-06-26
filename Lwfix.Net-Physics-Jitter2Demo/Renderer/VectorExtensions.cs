@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// <summary>
 /// Extension methods for System.Numerics vector types to mirror the

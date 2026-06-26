@@ -6,9 +6,9 @@
 
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 public partial class DynamicTree
 {

@@ -5,10 +5,10 @@
  */
 
 using System.Collections.Generic;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.Dynamics;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Represents an island, which is a collection of bodies that are either directly or indirectly in contact with each other.

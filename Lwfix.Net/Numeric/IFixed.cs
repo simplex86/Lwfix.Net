@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 定点数接口

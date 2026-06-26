@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 32位随机数

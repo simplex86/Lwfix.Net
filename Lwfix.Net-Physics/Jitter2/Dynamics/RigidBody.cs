@@ -9,14 +9,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.Collision;
-using SimplexLab.Fixed.Physics.Collision.Shapes;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.Dynamics.Constraints;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.Collision;
+using SimplexLab.Lwfix.Physics.Collision.Shapes;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.Dynamics.Constraints;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
-namespace SimplexLab.Fixed.Physics.Dynamics;
+namespace SimplexLab.Lwfix.Physics.Dynamics;
 
 /// <summary>
 /// Specifies whether a shape add/remove operation recomputes the body's mass and inertia.

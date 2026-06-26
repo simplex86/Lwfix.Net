@@ -5,9 +5,9 @@
  */
 
 using System;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 /// <summary>
 /// Creates a rigid weld joint between two bodies using a <see cref="Constraints.FixedAngle"/> 

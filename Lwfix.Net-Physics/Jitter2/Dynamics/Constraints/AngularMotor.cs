@@ -7,10 +7,10 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 /// <summary>
 /// Represents a motor that drives relative angular velocity between two axes fixed

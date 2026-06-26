@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// Phong lit shader consumed by <see cref="InstancedDrawable"/> for the lit pass.
 /// Samples <see cref="ShadowCaster.CascadeCount"/> shadow maps bound to texture

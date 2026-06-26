@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 函数库 - 正弦/余弦融合计算

@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Represents an entity that can be tracked by the <see cref="DynamicTree"/> for broadphase collision detection.

@@ -1,6 +1,6 @@
-using SimplexLab.Fixed.Physics.JDemo.Renderer;
+using SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
-namespace SimplexLab.Fixed.Physics.JDemo;
+namespace SimplexLab.Lwfix.Physics.JDemo;
 
 public static class ColorGenerator
 {

@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed.Physics.Collision;
-using SimplexLab.Fixed.Physics.Collision.Shapes;
+using SimplexLab.Lwfix.Physics.Collision;
+using SimplexLab.Lwfix.Physics.Collision.Shapes;
 
-namespace SimplexLab.Fixed.Physics.SoftBodies;
+namespace SimplexLab.Lwfix.Physics.SoftBodies;
 
 /// <summary>
 /// Provides a collision filter that prevents self-collisions within soft bodies

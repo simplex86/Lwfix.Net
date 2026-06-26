@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 public struct MeshGroup
 {

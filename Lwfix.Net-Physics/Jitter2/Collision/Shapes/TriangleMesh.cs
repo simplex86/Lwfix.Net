@@ -8,11 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// Represents a triangle mesh defined by a collection of vertices and triangle indices.

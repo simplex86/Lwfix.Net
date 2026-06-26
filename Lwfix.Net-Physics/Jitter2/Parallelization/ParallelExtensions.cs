@@ -5,10 +5,10 @@
  */
 
 using System;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
-namespace SimplexLab.Fixed.Physics.Parallelization;
+namespace SimplexLab.Lwfix.Physics.Parallelization;
 
 /// <summary>
 /// Provides parallel batch processing extension methods for collections used by the physics engine.

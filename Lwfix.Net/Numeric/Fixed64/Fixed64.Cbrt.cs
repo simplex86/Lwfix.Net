@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 定点数 - 立方根

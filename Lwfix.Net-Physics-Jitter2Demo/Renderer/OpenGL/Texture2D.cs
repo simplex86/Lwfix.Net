@@ -1,6 +1,6 @@
 using Silk.NET.OpenGL;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 public enum TextureWrap { Repeat = (int)TextureWrapMode.Repeat, ClampToBorder = (int)TextureWrapMode.ClampToBorder, ClampToEdge = (int)TextureWrapMode.ClampToEdge }
 public enum TextureFilter { Nearest = (int)TextureMinFilter.Nearest, Linear = (int)TextureMinFilter.Linear }

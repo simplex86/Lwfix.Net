@@ -5,9 +5,9 @@
  */
 
 using System.Runtime.CompilerServices;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Provides methods for computing points on the Minkowski difference of two convex shapes.

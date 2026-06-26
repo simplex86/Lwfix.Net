@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量

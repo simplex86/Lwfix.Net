@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.SoftBodies;
+namespace SimplexLab.Lwfix.Physics.SoftBodies;
 
 /// <summary>
 /// Represents a tetrahedral shape in a soft body simulation.

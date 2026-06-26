@@ -8,12 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Parallelization;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Parallelization;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Represents a dynamic AABB tree for broadphase collision detection.

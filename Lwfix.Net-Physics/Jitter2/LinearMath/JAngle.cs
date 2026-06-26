@@ -6,9 +6,9 @@
 
 using System;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.LinearMath;
+namespace SimplexLab.Lwfix.Physics.LinearMath;
 
 /// <summary>
 /// A floating point variable of type <see cref="Real"/> representing an angle. This structure exists to eliminate

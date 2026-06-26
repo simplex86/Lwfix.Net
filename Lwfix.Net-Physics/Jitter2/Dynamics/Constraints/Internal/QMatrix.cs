@@ -5,13 +5,13 @@
  */
 
 using System.Runtime.CompilerServices;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
 [assembly: InternalsVisibleTo("JitterTests")]
 [assembly: InternalsVisibleTo("Lwfix.Net-Physics-xUnit")]
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 internal unsafe struct QMatrix
 {

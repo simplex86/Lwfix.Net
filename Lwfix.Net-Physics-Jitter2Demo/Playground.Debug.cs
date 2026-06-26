@@ -1,10 +1,10 @@
 using System;
-using SimplexLab.Fixed.Physics.Collision;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.JDemo.Renderer;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Collision;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.JDemo.Renderer;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.JDemo;
+namespace SimplexLab.Lwfix.Physics.JDemo;
 
 public partial class Playground
 {

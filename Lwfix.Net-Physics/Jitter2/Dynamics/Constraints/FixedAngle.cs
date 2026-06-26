@@ -6,10 +6,10 @@
 
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 /// <summary>
 /// Constrains the relative orientation between two bodies, eliminating three degrees of rotational freedom.

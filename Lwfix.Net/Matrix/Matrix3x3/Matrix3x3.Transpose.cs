@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+﻿namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 3x3矩阵 - 转置

@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace SimplexLab.Fixed.Physics.DataStructures;
+namespace SimplexLab.Lwfix.Physics.DataStructures;
 
 /// <summary>
 /// Provides utility methods for converting collections to spans.

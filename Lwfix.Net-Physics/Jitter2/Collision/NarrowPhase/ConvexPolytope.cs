@@ -8,12 +8,12 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Unmanaged;
-using SimplexLab.Fixed;
-using Vertex = SimplexLab.Fixed.Physics.Collision.MinkowskiDifference.Vertex;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Unmanaged;
+using SimplexLab.Lwfix;
+using Vertex = SimplexLab.Lwfix.Physics.Collision.MinkowskiDifference.Vertex;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Represents a convex polytope builder used in the Expanding Polytope Algorithm (EPA)

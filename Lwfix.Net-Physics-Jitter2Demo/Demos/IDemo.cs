@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed.Physics.JDemo;
+namespace SimplexLab.Lwfix.Physics.JDemo;
 
 public interface ICleanDemo
 {

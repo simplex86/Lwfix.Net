@@ -6,9 +6,9 @@
 
 using System;
 using System.Collections.Generic;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
-namespace SimplexLab.Fixed.Physics.Dynamics;
+namespace SimplexLab.Lwfix.Physics.Dynamics;
 
 /// <summary>
 /// Manages contact information between two different rigid bodies.

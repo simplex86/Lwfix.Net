@@ -1,5 +1,5 @@
 using System;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
 namespace LwfixTest.Physics.Jitter2.Robustness;
 

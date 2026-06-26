@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// Defines a method to create a new instance of a shape for use with another rigid body.

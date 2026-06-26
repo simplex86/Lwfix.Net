@@ -1,6 +1,6 @@
 using System;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 定点数 - 正切查找表

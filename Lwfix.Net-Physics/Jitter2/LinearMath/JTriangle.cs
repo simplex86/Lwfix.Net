@@ -8,7 +8,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace SimplexLab.Fixed.Physics.LinearMath;
+namespace SimplexLab.Lwfix.Physics.LinearMath;
 
 /// <summary>
 /// Represents a triangle defined by three vertices.

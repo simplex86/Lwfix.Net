@@ -1,6 +1,6 @@
 using System;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// Immediate-mode line renderer for debug overlays (contact points, AABBs, rays, ...).
 /// One array per color; callers push primitives each frame, the renderer streams them

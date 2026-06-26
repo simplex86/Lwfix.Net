@@ -10,11 +10,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.ExceptionServices;
 using System.Threading;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.Unmanaged;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.Unmanaged;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.Parallelization;
+namespace SimplexLab.Lwfix.Physics.Parallelization;
 
 /*
  * ---------------------------------------------------------------------------

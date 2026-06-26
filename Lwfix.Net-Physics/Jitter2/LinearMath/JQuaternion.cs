@@ -7,9 +7,9 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.LinearMath;
+namespace SimplexLab.Lwfix.Physics.LinearMath;
 
 /// <summary>
 /// A structure representing a Quaternion: <c>Q = x*i + y*j + z*k + w</c>.

@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 32位定点数结构体

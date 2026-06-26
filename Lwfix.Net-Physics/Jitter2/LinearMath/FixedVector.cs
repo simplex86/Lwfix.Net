@@ -14,9 +14,9 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.LinearMath;
+namespace SimplexLab.Lwfix.Physics.LinearMath;
 
 /// <summary>
 /// A 4-wide vector of <see cref="Real"/> (Fixed32) values, occupying exactly

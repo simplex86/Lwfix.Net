@@ -5,9 +5,9 @@
  */
 
 using System.Collections.Generic;
-using SimplexLab.Fixed.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.DataStructures;
 
-namespace SimplexLab.Fixed.Physics.Dynamics.Constraints;
+namespace SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
 /// <summary>
 /// Base class for joints, which are composite constraints built from multiple <see cref="Constraint"/> instances.

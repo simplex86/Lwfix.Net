@@ -1,8 +1,8 @@
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 using Xunit;
 using System;
 
-namespace LwfixTest.Fixed.Vectors
+namespace SimplexLab.Lwfix.Test.Vectors
 {
     public partial class TVector2
     {

@@ -1,9 +1,9 @@
 using System;
-using SimplexLab.Fixed.Physics.Collision.Shapes;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Collision.Shapes;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.JDemo;
+namespace SimplexLab.Lwfix.Physics.JDemo;
 
 public class Demo23 : IDemo, IDrawUpdate
 {

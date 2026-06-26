@@ -7,14 +7,14 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.Collision;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.Dynamics.Constraints;
-using SimplexLab.Fixed.Physics.Parallelization;
-using SimplexLab.Fixed.Physics.Unmanaged;
+using SimplexLab.Lwfix.Physics.Collision;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.Dynamics.Constraints;
+using SimplexLab.Lwfix.Physics.Parallelization;
+using SimplexLab.Lwfix.Physics.Unmanaged;
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 /// <summary>
 /// Controls which solver strategy is used during <see cref="World.Step"/>.
@@ -38,14 +38,14 @@ public enum SolveMode
 
 public sealed partial class World
 {
-    private SolveMode solveMode = SimplexLab.Fixed.Physics.SolveMode.Regular;
+    private SolveMode solveMode = SimplexLab.Lwfix.Physics.SolveMode.Regular;
 
     /// <summary>
-    /// The solver strategy used during <see cref="Step"/>. Defaults to <see cref="SimplexLab.Fixed.Physics.SolveMode.Regular"/>.
-    /// <remarks> <see cref="SimplexLab.Fixed.Physics.SolveMode.Deterministic"/> can be significantly slower than
-    /// <see cref="SimplexLab.Fixed.Physics.SolveMode.Regular"/>.</remarks>
+    /// The solver strategy used during <see cref="Step"/>. Defaults to <see cref="SimplexLab.Lwfix.Physics.SolveMode.Regular"/>.
+    /// <remarks> <see cref="SimplexLab.Lwfix.Physics.SolveMode.Deterministic"/> can be significantly slower than
+    /// <see cref="SimplexLab.Lwfix.Physics.SolveMode.Regular"/>.</remarks>
     /// </summary>
-    /// <exception cref="ArgumentOutOfRangeException">Thrown when an undefined <see cref="SimplexLab.Fixed.Physics.SolveMode"/>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when an undefined <see cref="SimplexLab.Lwfix.Physics.SolveMode"/>
     /// value is assigned.</exception>
     public SolveMode SolveMode
     {

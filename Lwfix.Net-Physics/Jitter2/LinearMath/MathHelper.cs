@@ -3,7 +3,7 @@
  * (c) Thorben Linneweber and contributors
  * SPDX-License-Identifier: MIT
  *
- * Fixed-point build: Real is SimplexLab.Fixed.Fixed32. The SignBit helper that
+ * Fixed-point build: Real is SimplexLab.Lwfix.Fixed32. The SignBit helper that
  * originally inspected the IEEE-754 sign bit via BitConverter has been rewritten
  * to inspect the raw storage of Fixed32 (a signed two's-complement long).
  */
@@ -11,9 +11,9 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.LinearMath;
+namespace SimplexLab.Lwfix.Physics.LinearMath;
 
 /// <summary>
 /// Provides mathematical helper methods for linear algebra and physics calculations.

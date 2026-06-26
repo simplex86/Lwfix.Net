@@ -7,9 +7,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.LinearMath;
+namespace SimplexLab.Lwfix.Physics.LinearMath;
 
 /// <summary>
 /// Represents an axis-aligned bounding box (AABB), a rectangular bounding box whose edges are parallel to the coordinate axes.

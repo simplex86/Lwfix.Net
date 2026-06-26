@@ -161,13 +161,13 @@ public class WorldTests
         var world = new World();
         world.PreStep += _ =>
         {
-            Assert.False(SimplexLab.Fixed.Physics.Parallelization.ThreadPool.Instance.IsPaused);
+            Assert.False(SimplexLab.Lwfix.Physics.Parallelization.ThreadPool.Instance.IsPaused);
             throw new InvalidOperationException("Interrupted step.");
         };
 
         Assert.Throws<InvalidOperationException>(() => world.Step((Real)(1.0 / 60.0), true));
 
-        Assert.True(SimplexLab.Fixed.Physics.Parallelization.ThreadPool.Instance.IsPaused);
+        Assert.True(SimplexLab.Lwfix.Physics.Parallelization.ThreadPool.Instance.IsPaused);
         world.Dispose();
     }
 
@@ -219,13 +219,13 @@ public class WorldTests
 
         world.IslandDeactivated += _ =>
         {
-            Assert.False(SimplexLab.Fixed.Physics.Parallelization.ThreadPool.Instance.IsPaused);
+            Assert.False(SimplexLab.Lwfix.Physics.Parallelization.ThreadPool.Instance.IsPaused);
             throw new InvalidOperationException("Interrupted stabilize.");
         };
 
         Assert.Throws<InvalidOperationException>(() => world.Stabilize((Real)(1.0 / 60.0), 1, 0, true));
 
-        Assert.True(SimplexLab.Fixed.Physics.Parallelization.ThreadPool.Instance.IsPaused);
+        Assert.True(SimplexLab.Lwfix.Physics.Parallelization.ThreadPool.Instance.IsPaused);
         world.Dispose();
     }
 

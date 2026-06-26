@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-namespace SimplexLab.Fixed.Physics.DataStructures;
+namespace SimplexLab.Lwfix.Physics.DataStructures;
 
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+﻿namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 4x4矩阵 - 行列式

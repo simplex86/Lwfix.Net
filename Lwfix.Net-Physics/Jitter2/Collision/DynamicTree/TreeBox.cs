@@ -3,7 +3,7 @@
  * (c) Thorben Linneweber and contributors
  * SPDX-License-Identifier: MIT
  *
- * Fixed-point build: Real is SimplexLab.Fixed.Fixed32. The 1e-12 epsilon used
+ * Fixed-point build: Real is SimplexLab.Lwfix.Fixed32. The 1e-12 epsilon used
  * for ray-box intersection underflows to zero in Fixed32 (epsilon ~= 2.3e-10),
  * so it is replaced by Fixed32.Epsilon. The Surface Area Heuristic cost helpers
  * (GetSurfaceArea / MergedSurface) use Real (Fixed32) as well; the SAH overflow
@@ -13,10 +13,10 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Represents an axis-aligned bounding box with SIMD-friendly memory layout, used for spatial partitioning in

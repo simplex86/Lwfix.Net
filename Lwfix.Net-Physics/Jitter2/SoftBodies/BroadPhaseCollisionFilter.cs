@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: MIT
  */
 
-using SimplexLab.Fixed.Physics.Collision;
-using SimplexLab.Fixed.Physics.Collision.Shapes;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Collision;
+using SimplexLab.Lwfix.Physics.Collision.Shapes;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.SoftBodies;
+namespace SimplexLab.Lwfix.Physics.SoftBodies;
 
 /// <summary>
 /// A broad-phase filter that handles collisions involving soft body shapes.

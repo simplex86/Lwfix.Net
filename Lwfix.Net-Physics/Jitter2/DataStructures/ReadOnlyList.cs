@@ -7,7 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SimplexLab.Fixed.Physics.DataStructures;
+namespace SimplexLab.Lwfix.Physics.DataStructures;
 
 /// <summary>
 /// A read-only wrapper around <see cref="List{T}"/> that prevents modification while allowing indexed access and enumeration.

@@ -1,8 +1,8 @@
 using Xunit;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 using System;
 
-namespace LwfixTest.Fixed.Matrix
+namespace SimplexLab.Lwfix.Test.Matrix
 {
     public partial class TMatrix4x4
     {

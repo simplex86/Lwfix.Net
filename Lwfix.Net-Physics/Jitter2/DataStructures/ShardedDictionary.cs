@@ -14,7 +14,7 @@ using Lock = System.Threading.Lock;
 using Lock = System.Object;
 #endif
 
-namespace SimplexLab.Fixed.Physics.DataStructures;
+namespace SimplexLab.Lwfix.Physics.DataStructures;
 
 /// <summary>
 /// A thread-safe dictionary that partitions entries across multiple shards to reduce lock contention.

@@ -1,9 +1,9 @@
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 using Xunit;
 using System;
 using System.Collections.Generic;
 
-namespace LwfixTest.Fixed.Random
+namespace SimplexLab.Lwfix.Test.Random
 {
     public partial class TFRandom
     {

@@ -5,10 +5,10 @@
  */
 
 using System;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 /// <summary>
 /// Validates public API inputs that must be checked in all build configurations.

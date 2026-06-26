@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace SimplexLab.Fixed.Physics.DataStructures;
+namespace SimplexLab.Lwfix.Physics.DataStructures;
 
 /// <summary>
 /// Defines an index property used by <see cref="PartitionedSet{T}"/> to track element positions.

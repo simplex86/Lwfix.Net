@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Silk.NET.OpenGL;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 public class ShaderException : Exception
 {

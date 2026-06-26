@@ -1,9 +1,9 @@
 using System;
 using System.Text;
-using SimplexLab.Fixed.Physics.JDemo.Renderer;
+using SimplexLab.Lwfix.Physics.JDemo.Renderer;
 using ImGui = ImGuiNET.ImGui;
 
-namespace SimplexLab.Fixed.Physics.JDemo;
+namespace SimplexLab.Lwfix.Physics.JDemo;
 
 public partial class Playground
 {

@@ -6,9 +6,9 @@
 
 using System;
 using System.Collections.Generic;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// Represents a triangle shape defined by a reference to a <see cref="TriangleMesh"/> and an index.

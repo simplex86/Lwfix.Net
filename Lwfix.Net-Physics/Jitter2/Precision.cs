@@ -3,22 +3,22 @@
  * (c) Thorben Linneweber and contributors
  * SPDX-License-Identifier: MIT
  *
- * Fixed-point build: Real is SimplexLab.Fixed.Fixed32 (Q32.32, 8 bytes).
+ * Fixed-point build: Real is SimplexLab.Lwfix.Fixed32 (Q32.32, 8 bytes).
  * MathR aliases the generic FMath helper. Vector/VectorReal alias the
  * custom 4-wide Fixed32 SIMD shim (see LinearMath/FixedVector.cs) since
  * System.Runtime.Intrinsics vectors cannot be formed over Fixed32.
  */
 
-global using Real = SimplexLab.Fixed.Fixed32;
-global using MathR = SimplexLab.Fixed.FMath;
-global using Vector = SimplexLab.Fixed.Physics.LinearMath.FixedVector;
-global using VectorReal = SimplexLab.Fixed.Physics.LinearMath.FixedVector4;
+global using Real = SimplexLab.Lwfix.Fixed32;
+global using MathR = SimplexLab.Lwfix.FMath;
+global using Vector = SimplexLab.Lwfix.Physics.LinearMath.FixedVector;
+global using VectorReal = SimplexLab.Lwfix.Physics.LinearMath.FixedVector4;
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 /// <summary>
 /// Provides constants and utilities related to the numeric precision configuration.
-/// The library is built on the <see cref="SimplexLab.Fixed.Fixed32"/> fixed-point type.
+/// The library is built on the <see cref="SimplexLab.Lwfix.Fixed32"/> fixed-point type.
 /// </summary>
 internal static class Precision
 {

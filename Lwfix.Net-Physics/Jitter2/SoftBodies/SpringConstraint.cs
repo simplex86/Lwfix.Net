@@ -7,13 +7,13 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.Dynamics.Constraints;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Unmanaged;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.Dynamics.Constraints;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Unmanaged;
+using SimplexLab.Lwfix;
 
-namespace SimplexLab.Fixed.Physics.SoftBodies;
+namespace SimplexLab.Lwfix.Physics.SoftBodies;
 
 /// <summary>
 /// Constrains two bodies to maintain a target distance between anchor points,

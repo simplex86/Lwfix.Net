@@ -7,13 +7,13 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-using Vertex = SimplexLab.Fixed.Physics.Collision.MinkowskiDifference.Vertex;
+using Vertex = SimplexLab.Lwfix.Physics.Collision.MinkowskiDifference.Vertex;
 
 #pragma warning disable CS0649 // Field is never assigned to, and will always have its default value
 
-namespace SimplexLab.Fixed.Physics.Collision;
+namespace SimplexLab.Lwfix.Physics.Collision;
 
 /// <summary>
 /// Implements the Gilbert-Johnson-Keerthi (GJK) simplex solver with support for retrieving

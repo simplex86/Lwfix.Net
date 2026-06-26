@@ -5,10 +5,10 @@
  */
 
 using System.Collections.Generic;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.Dynamics.Constraints;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.Dynamics.Constraints;
 
-namespace SimplexLab.Fixed.Physics.SoftBodies;
+namespace SimplexLab.Lwfix.Physics.SoftBodies;
 
 /// <summary>
 /// Represents a soft body in the physics simulation. A soft body is composed of vertices (rigid bodies),

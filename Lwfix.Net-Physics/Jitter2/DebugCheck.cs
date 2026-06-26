@@ -5,9 +5,9 @@
  */
 
 using System.Diagnostics;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 /// <summary>
 /// Runs additional input sanity checks in Debug builds.

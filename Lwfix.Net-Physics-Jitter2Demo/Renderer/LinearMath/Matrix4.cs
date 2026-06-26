@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// <summary>
 /// Column-major 4x4 matrix (memory layout matches OpenGL's default).

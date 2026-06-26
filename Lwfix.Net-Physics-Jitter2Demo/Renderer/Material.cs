@@ -1,4 +1,4 @@
-namespace SimplexLab.Fixed.Physics.JDemo.Renderer;
+namespace SimplexLab.Lwfix.Physics.JDemo.Renderer;
 
 /// <summary>
 /// Surface description consumed by the lit shader. Controls how vertex color,

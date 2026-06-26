@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
-namespace SimplexLab.Fixed.Physics.DataStructures;
+namespace SimplexLab.Lwfix.Physics.DataStructures;
 
 /// <summary>
 /// A lightweight unordered collection backed by an array. Removing an element at position n
@@ -111,7 +111,7 @@ internal class SlimBag<T> : IEnumerable<T>
         array[counter++] = item;
     }
 
-    private SimplexLab.Fixed.Physics.Parallelization.ReaderWriterLock rwLock;
+    private SimplexLab.Lwfix.Physics.Parallelization.ReaderWriterLock rwLock;
 
     /// <summary>
     /// Adds an element to the <see cref="SlimBag{T}"/> in a thread-safe manner.

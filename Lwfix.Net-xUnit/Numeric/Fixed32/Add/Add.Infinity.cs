@@ -1,7 +1,7 @@
 ﻿using Xunit;
-using SimplexLab.Fixed;
+using SimplexLab.Lwfix;
 
-namespace LwfixTest.Fixed.Numerics
+namespace SimplexLab.Lwfix.Test.Numerics
 {
     /// <summary>
     /// 加法 - 极值

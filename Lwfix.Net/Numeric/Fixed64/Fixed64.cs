@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 
-namespace SimplexLab.Fixed
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 64位定点数结构体

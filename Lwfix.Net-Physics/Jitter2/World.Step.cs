@@ -9,14 +9,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using SimplexLab.Fixed.Physics.Collision;
-using SimplexLab.Fixed.Physics.DataStructures;
-using SimplexLab.Fixed.Physics.Dynamics;
-using SimplexLab.Fixed.Physics.Dynamics.Constraints;
-using SimplexLab.Fixed.Physics.LinearMath;
-using SimplexLab.Fixed.Physics.Parallelization;
-using SimplexLab.Fixed.Physics.Unmanaged;
-using ThreadPool = SimplexLab.Fixed.Physics.Parallelization.ThreadPool;
+using SimplexLab.Lwfix.Physics.Collision;
+using SimplexLab.Lwfix.Physics.DataStructures;
+using SimplexLab.Lwfix.Physics.Dynamics;
+using SimplexLab.Lwfix.Physics.Dynamics.Constraints;
+using SimplexLab.Lwfix.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.Parallelization;
+using SimplexLab.Lwfix.Physics.Unmanaged;
+using ThreadPool = SimplexLab.Lwfix.Physics.Parallelization.ThreadPool;
 
 #if NET9_0_OR_GREATER
 using Lock = System.Threading.Lock;
@@ -24,7 +24,7 @@ using Lock = System.Threading.Lock;
 using Lock = System.Object;
 #endif
 
-namespace SimplexLab.Fixed.Physics;
+namespace SimplexLab.Lwfix.Physics;
 
 public sealed partial class World
 {
@@ -236,7 +236,7 @@ public sealed partial class World
                 PreSubStep?.Invoke(substepDt);
                 IntegrateForces(multiThread); // FAST SWEEP
 
-                if (SolveMode == SimplexLab.Fixed.Physics.SolveMode.Deterministic)
+                if (SolveMode == SimplexLab.Lwfix.Physics.SolveMode.Deterministic)
                 {
                     SolveIslands(multiThread, solverIterations); // FAST SWEEP
                     IntegrateVelocities(multiThread); // FAST SWEEP
@@ -364,7 +364,7 @@ public sealed partial class World
 
             CheckDeactivation();
 
-            if (SolveMode == SimplexLab.Fixed.Physics.SolveMode.Deterministic)
+            if (SolveMode == SimplexLab.Lwfix.Physics.SolveMode.Deterministic)
             {
                 PrepareIslandSolveOrder();
 

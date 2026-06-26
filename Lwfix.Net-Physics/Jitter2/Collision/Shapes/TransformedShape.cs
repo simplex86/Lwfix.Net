@@ -5,9 +5,9 @@
  */
 
 using System;
-using SimplexLab.Fixed.Physics.LinearMath;
+using SimplexLab.Lwfix.Physics.LinearMath;
 
-namespace SimplexLab.Fixed.Physics.Collision.Shapes;
+namespace SimplexLab.Lwfix.Physics.Collision.Shapes;
 
 /// <summary>
 /// Represents a shape wrapper defined by an original shape and an affine transformation (translation and linear map).

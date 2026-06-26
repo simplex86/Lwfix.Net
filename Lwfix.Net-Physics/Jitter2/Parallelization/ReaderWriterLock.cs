@@ -6,7 +6,7 @@
 
 using System.Threading;
 
-namespace SimplexLab.Fixed.Physics.Parallelization;
+namespace SimplexLab.Lwfix.Physics.Parallelization;
 
 /// <summary>
 /// Provides a lightweight reader-writer lock optimized for rare write operations.

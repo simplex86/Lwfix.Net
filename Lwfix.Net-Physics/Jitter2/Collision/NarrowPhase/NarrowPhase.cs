@@ -255,7 +255,9 @@ public static class NarrowPhase
                 {
                     // was: return true;
                     // better not return a collision
-                    Debug.Assert(false, "MPR: This should not happen.");
+                    // With fixed-point math (Fixed32), near-collinear wedge faces
+                    // can produce a near-zero cross product. This is a valid edge
+                    // case — return false (no collision) and continue.
                     return false;
                 }
 

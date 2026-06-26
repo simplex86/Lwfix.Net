@@ -20,7 +20,7 @@ namespace SimplexLab.Fixed.Physics;
 /// Provides constants and utilities related to the numeric precision configuration.
 /// The library is built on the <see cref="SimplexLab.Fixed.Fixed32"/> fixed-point type.
 /// </summary>
-public static class Precision
+internal static class Precision
 {
     /// <summary>
     /// The size in bytes of a single <see cref="Real"/> (Fixed32) value.

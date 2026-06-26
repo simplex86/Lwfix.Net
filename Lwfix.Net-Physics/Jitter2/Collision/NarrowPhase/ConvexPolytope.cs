@@ -29,10 +29,10 @@ namespace SimplexLab.Fixed.Physics.Collision;
 /// Memory is allocated from the unmanaged heap and reused across EPA iterations.
 /// </para>
 /// </remarks>
-public unsafe struct ConvexPolytope
+internal unsafe struct ConvexPolytope
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct Triangle
+    internal struct Triangle
     {
         public short A, B, C;
         public bool FacingOrigin;
@@ -75,10 +75,10 @@ public unsafe struct ConvexPolytope
 
     private JVector center;
 
-    public readonly Span<Triangle> HullTriangles => new(triangles, tPointer);
+    internal readonly Span<Triangle> HullTriangles => new(triangles, tPointer);
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public ref Vertex GetVertex(int index)
+    internal ref Vertex GetVertex(int index)
     {
         Debug.Assert(index < MaxVertices, "Out of bounds.");
         return ref vertices[index];
@@ -88,7 +88,7 @@ public unsafe struct ConvexPolytope
     /// Indicates whether the origin is enclosed within the polyhedron.
     /// Only valid after <see cref="GetClosestTriangle"/> has been called, which updates this flag.
     /// </summary>
-    public readonly bool OriginEnclosed => originEnclosed;
+    internal readonly bool OriginEnclosed => originEnclosed;
 
     /// <summary>
     /// Computes the closest points on shapes A and B from a triangle on the polytope.
@@ -96,7 +96,7 @@ public unsafe struct ConvexPolytope
     /// <param name="ctri">The triangle from <see cref="GetClosestTriangle"/>.</param>
     /// <param name="pA">The closest point on shape A.</param>
     /// <param name="pB">The closest point on shape B.</param>
-    public void CalculatePoints(in Triangle ctri, out JVector pA, out JVector pB)
+    internal void CalculatePoints(in Triangle ctri, out JVector pA, out JVector pB)
     {
         CalcBarycentric(ctri, out JVector bc);
         pA = bc.X * vertices[ctri.A].A + bc.Y * vertices[ctri.B].A + bc.Z * vertices[ctri.C].A;
@@ -258,7 +258,7 @@ public unsafe struct ConvexPolytope
     /// Finds the triangle on the polytope closest to the origin.
     /// </summary>
     /// <returns>A reference to the closest triangle. Also updates <see cref="OriginEnclosed"/>.</returns>
-    public ref Triangle GetClosestTriangle()
+    internal ref Triangle GetClosestTriangle()
     {
         int closestIndex = -1;
         Real currentMin = Real.MaxValue;
@@ -289,7 +289,7 @@ public unsafe struct ConvexPolytope
     /// <remarks>
     /// The first four vertices must be set before calling this method.
     /// </remarks>
-    public void InitTetrahedron()
+    internal void InitTetrahedron()
     {
         originEnclosed = false;
         vPointer = 4;
@@ -307,7 +307,7 @@ public unsafe struct ConvexPolytope
     /// Initializes the polytope with a small tetrahedron centered at the specified point.
     /// </summary>
     /// <param name="point">The center point of the initial tetrahedron.</param>
-    public void InitTetrahedron(in JVector point)
+    internal void InitTetrahedron(in JVector point)
     {
         originEnclosed = false;
         vPointer = 4;
@@ -332,7 +332,7 @@ public unsafe struct ConvexPolytope
     /// <remarks>
     /// Must be called before any other method. Safe to call multiple times; allocation occurs only once.
     /// </remarks>
-    public void InitHeap()
+    internal void InitHeap()
     {
         if (vertices != (void*)0) return;
         vertices = MemoryHelper.AllocateHeap<Vertex>(MaxVertices);
@@ -349,7 +349,7 @@ public unsafe struct ConvexPolytope
     /// </remarks>
     [SkipLocalsInit]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public bool AddVertex(in Vertex vertex)
+    internal bool AddVertex(in Vertex vertex)
     {
         Debug.Assert(vPointer < MaxVertices, "Maximum number of vertices exceeded.");
 

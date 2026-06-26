@@ -23,7 +23,7 @@ namespace SimplexLab.Fixed.Physics.Collision;
 /// simplex is near-degenerate.
 /// </remarks>
 [StructLayout(LayoutKind.Sequential)]
-public unsafe struct SimplexSolver
+internal unsafe struct SimplexSolver
 {
     private static readonly Real Epsilon = (Real)1e-8;
 
@@ -37,7 +37,7 @@ public unsafe struct SimplexSolver
     /// <summary>
     /// Resets the solver to an empty simplex.
     /// </summary>
-    public void Reset()
+    internal void Reset()
     {
         usageMask = 0;
     }
@@ -235,7 +235,7 @@ public unsafe struct SimplexSolver
     /// <c>false</c> if the origin is enclosed by the tetrahedron.
     /// </returns>
     [SkipLocalsInit]
-    public bool AddVertex(in JVector vertex, out JVector closest)
+    internal bool AddVertex(in JVector vertex, out JVector closest)
     {
         Unsafe.SkipInit(out closest);
 

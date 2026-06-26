@@ -143,7 +143,7 @@ public unsafe class PointOnLine : Constraint<PointOnLine.PointOnLineData>
     }
 
     [SkipLocalsInit]
-    public static void PrepareForIterationPointOnLine(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationPointOnLine(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, PointOnLineData>(ref constraint);
         ref RigidBodyData body1 = ref data.Body1.Data;
@@ -325,7 +325,7 @@ public unsafe class PointOnLine : Constraint<PointOnLine.PointOnLineData>
     }
 
     [SkipLocalsInit]
-    public static void IteratePointOnLine(ref ConstraintData constraint, Real idt)
+    internal static void IteratePointOnLine(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, PointOnLineData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

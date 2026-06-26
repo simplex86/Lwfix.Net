@@ -120,7 +120,7 @@ public struct ContactData
     /// Prepares all active contacts for solver iterations by computing effective masses and warm-starting impulses.
     /// </summary>
     /// <param name="idt">Inverse of the timestep (1/dt).</param>
-    public unsafe void PrepareForIteration(Real idt)
+    internal unsafe void PrepareForIteration(Real idt)
     {
         var ptr = (ContactData*)Unsafe.AsPointer(ref this);
 
@@ -144,7 +144,7 @@ public struct ContactData
     /// Performs one solver iteration over all active contacts, applying corrective impulses.
     /// </summary>
     /// <param name="applyBias">If <see langword="true"/>, applies position-correction bias.</param>
-    public unsafe void Iterate(bool applyBias)
+    internal unsafe void Iterate(bool applyBias)
     {
         var ptr = (ContactData*)Unsafe.AsPointer(ref this);
 
@@ -755,7 +755,7 @@ public struct ContactData
         // Fallback for missing hardware acceleration
         #region public unsafe void PrepareForIteration(ContactData* cd, Real idt)
 
-        public unsafe void PrepareForIteration(ContactData* cd, Real idt)
+        internal unsafe void PrepareForIteration(ContactData* cd, Real idt)
         {
             // Begin read from VectorReal
             Real accumulatedNormalImpulse = Accumulated.GetElement(0);
@@ -975,7 +975,7 @@ public struct ContactData
         }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public unsafe void PrepareForIterationAccelerated(ContactData* cd, Real idt)
+        internal unsafe void PrepareForIterationAccelerated(ContactData* cd, Real idt)
         {
             ref var b1 = ref cd->Body1.Data;
             ref var b2 = ref cd->Body2.Data;
@@ -1104,7 +1104,7 @@ public struct ContactData
         }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public unsafe void IterateAccelerated(ContactData* cd, bool applyBias)
+        internal unsafe void IterateAccelerated(ContactData* cd, bool applyBias)
         {
             ref var b1 = ref cd->Body1.Data;
             ref var b2 = ref cd->Body2.Data;

@@ -91,8 +91,8 @@ public unsafe class HingeAngle : Constraint<HingeAngle.HingeAngleData>
         data.BiasFactor = Constraint.DefaultAngularBias;
         data.LimitBias = Constraint.DefaultAngularLimitBias;
 
-        data.MinAngle = StableMath.Sin((Real)limit.From / (Real)2.0);
-        data.MaxAngle = StableMath.Sin((Real)limit.To / (Real)2.0);
+        data.MinAngle = MathR.Sin((Real)limit.From / (Real)2.0);
+        data.MaxAngle = MathR.Sin((Real)limit.To / (Real)2.0);
 
         JVector.NormalizeInPlace(ref axis);
         data.Axis = JVector.ConjugatedTransform(axis, body2.Orientation);
@@ -117,12 +117,12 @@ public unsafe class HingeAngle : Constraint<HingeAngle.HingeAngleData>
             ArgumentCheck.Finite(value.To, nameof(value.To));
 
             ref HingeAngleData data = ref Data;
-            data.MinAngle = StableMath.Sin((Real)value.From / (Real)2.0);
-            data.MaxAngle = StableMath.Sin((Real)value.To / (Real)2.0);
+            data.MinAngle = MathR.Sin((Real)value.From / (Real)2.0);
+            data.MaxAngle = MathR.Sin((Real)value.To / (Real)2.0);
         }
     }
 
-    public static void PrepareForIterationHingeAngle(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationHingeAngle(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, HingeAngleData>(ref constraint);
 
@@ -217,7 +217,7 @@ public unsafe class HingeAngle : Constraint<HingeAngle.HingeAngleData>
             }
 
             Real error = JVector.Dot(data.Axis, new JVector(quat0.X, quat0.Y, quat0.Z));
-            return (JAngle)((Real)2.0 * StableMath.Asin(error));
+            return (JAngle)((Real)2.0 * MathR.Asin(error));
         }
     }
 
@@ -290,7 +290,7 @@ public unsafe class HingeAngle : Constraint<HingeAngle.HingeAngleData>
     /// </summary>
     public JVector Impulse => Data.AccumulatedImpulse;
 
-    public static void IterateHingeAngle(ref ConstraintData constraint, Real idt)
+    internal static void IterateHingeAngle(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, HingeAngleData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

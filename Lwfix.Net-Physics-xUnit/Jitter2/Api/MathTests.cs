@@ -2,8 +2,43 @@ namespace LwfixTest.Physics.Jitter2.Api;
 
 public class MathTests
 {
+    /// <summary>
+    /// Verifies that FMath.Atan2 matches Fixed32.Atan2 directly.
+    /// This guards against the historical arg-swap bug where FMath.Atan2(y, x)
+    /// called T.Atan2(x, y) instead of T.Atan2(y, x).
+    /// </summary>
     [Fact]
-    public static void StableMath_MatchesMathROnRepresentativeInputs()
+    public static void FMath_Atan2_MatchesFixed32_AfterBugFix()
+    {
+        (Real y, Real x)[] inputs =
+        [
+            ((Real)0.0, (Real)1.0),
+            ((Real)1.0, (Real)0.0),
+            ((Real)1.0, (Real)1.0),
+            ((Real)(-1.0), (Real)1.0),
+            ((Real)1.0, (Real)(-1.0)),
+            ((Real)(-1.0), (Real)(-1.0)),
+            ((Real)0.5, (Real)0.866),
+            ((Real)(-0.5), (Real)0.866),
+            ((Real)0.866, (Real)0.5),
+            ((Real)(-0.866), (Real)(-0.5))
+        ];
+
+        foreach (var (y, x) in inputs)
+        {
+            Real expected = Fixed32.Atan2(y, x);
+            Real actual = MathR.Atan2(y, x);
+            Assert.True(MathR.Abs(actual - expected) < (Real)1e-6,
+                $"Atan2({y}, {x}): expected {expected.ToDouble()}, got {actual.ToDouble()}");
+        }
+    }
+
+    /// <summary>
+    /// Verifies that FMath.SinCos returns (sin, cos) consistent with individual
+    /// FMath.Sin and FMath.Cos calls.
+    /// </summary>
+    [Fact]
+    public static void FMath_SinCos_ConsistentWithIndividualCalls()
     {
         Real[] angles =
         [
@@ -26,68 +61,26 @@ public class MathTests
 
         foreach (Real angle in angles)
         {
-            var (sinDet, cosDet) = StableMath.SinCos(angle);
-
-            Assert.True(MathR.Abs(sinDet - MathR.Sin(angle)) < (Real)2e-6, $"sin({angle})");
-            Assert.True(MathR.Abs(cosDet - MathR.Cos(angle)) < (Real)2e-6, $"cos({angle})");
-            Assert.True(MathR.Abs(StableMath.Sin(angle) - MathR.Sin(angle)) < (Real)2e-6, $"single sin({angle})");
-            Assert.True(MathR.Abs(StableMath.Cos(angle) - MathR.Cos(angle)) < (Real)2e-6, $"single cos({angle})");
-        }
-
-        // FMath.Atan2<T>(y, x) has a known arg-swap bug (calls T.Atan2(x, y)),
-        // so StableMath.Atan2 uses Fixed32.Atan2 directly. The generic path is not
-        // a faithful reference for atan2 and is therefore excluded from this comparison.
-        // (Real y, Real x)[] atanInputs = [ ... ];
-
-        Real[] unitInputs = [(Real)(-1.0), (Real)(-0.75), (Real)(-0.25), (Real)0.0, (Real)0.25, (Real)0.75, (Real)1.0];
-
-        foreach (Real value in unitInputs)
-        {
-            Assert.True(MathR.Abs(StableMath.Asin(value) - MathR.Asin(value)) < (Real)2e-6,
-                $"asin({value})");
-            Assert.True(MathR.Abs(StableMath.Acos(value) - MathR.Acos(value)) < (Real)2e-6,
-                $"acos({value})");
+            var (sin, cos) = MathR.SinCos(angle);
+            Assert.True(MathR.Abs(sin - MathR.Sin(angle)) < (Real)2e-6, $"sin({angle})");
+            Assert.True(MathR.Abs(cos - MathR.Cos(angle)) < (Real)2e-6, $"cos({angle})");
         }
     }
 
+    /// <summary>
+    /// Verifies inverse trig functions match the underlying Fixed32 implementation
+    /// on the unit interval.
+    /// </summary>
     [Fact]
-    public static void StableMath_MatchesMathROnNonReducedBoundaryInputs()
-    {
-        Real epsilon = (Real)1e-4;
-        Real[] angles =
-        [
-            -StableMath.Pi,
-            -StableMath.Pi + epsilon,
-            -StableMath.HalfPi,
-            -StableMath.QuarterPi,
-            (Real)0.0,
-            StableMath.QuarterPi,
-            StableMath.HalfPi,
-            StableMath.Pi - epsilon,
-            StableMath.Pi
-        ];
-
-        foreach (Real angle in angles)
-        {
-            var (sinDet, cosDet) = StableMath.SinCos(angle);
-
-            Assert.True(MathR.Abs(sinDet - MathR.Sin(angle)) < (Real)2e-6, $"sin({angle})");
-            Assert.True(MathR.Abs(cosDet - MathR.Cos(angle)) < (Real)2e-6, $"cos({angle})");
-            Assert.True(MathR.Abs(StableMath.Sin(angle) - MathR.Sin(angle)) < (Real)2e-6, $"single sin({angle})");
-            Assert.True(MathR.Abs(StableMath.Cos(angle) - MathR.Cos(angle)) < (Real)2e-6, $"single cos({angle})");
-        }
-    }
-
-    [Fact]
-    public static void DeterministicInverseTrig_MatchesMathROnUnitInterval()
+    public static void FMath_InverseTrig_MatchesFixed32_OnUnitInterval()
     {
         for (int i = -2000; i <= 2000; i++)
         {
             Real value = i / (Real)2000.0;
 
-            Assert.True(MathR.Abs(StableMath.Asin(value) - MathR.Asin(value)) < (Real)5e-6,
+            Assert.True(MathR.Abs(MathR.Asin(value) - Fixed32.Asin(value)) < (Real)5e-6,
                 $"asin({value})");
-            Assert.True(MathR.Abs(StableMath.Acos(value) - MathR.Acos(value)) < (Real)5e-6,
+            Assert.True(MathR.Abs(MathR.Acos(value) - Fixed32.Acos(value)) < (Real)5e-6,
                 $"acos({value})");
         }
     }

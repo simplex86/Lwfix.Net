@@ -136,7 +136,7 @@ public unsafe class AngularMotor : Constraint<AngularMotor.AngularMotorData>
         }
     }
 
-    public static void PrepareForIterationAngularMotor(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationAngularMotor(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, AngularMotorData>(ref constraint);
 
@@ -156,7 +156,7 @@ public unsafe class AngularMotor : Constraint<AngularMotor.AngularMotorData>
         body2.AngularVelocity += JVector.Transform(j2 * data.AccumulatedImpulse, body2.InverseInertiaWorld);
     }
 
-    public static void IterateAngularMotor(ref ConstraintData constraint, Real idt)
+    internal static void IterateAngularMotor(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, AngularMotorData>(ref constraint);
 

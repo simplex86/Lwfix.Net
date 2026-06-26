@@ -139,7 +139,7 @@ public struct JMatrix(
     /// <returns>The rotation matrix.</returns>
     public static JMatrix CreateRotationMatrix(JVector axis, Real angle)
     {
-        (Real s, Real c) = StableMath.SinCos(angle / (Real)2.0);
+        (Real s, Real c) = MathR.SinCos(angle / (Real)2.0);
         axis *= s;
         JQuaternion jq = new(axis.X, axis.Y, axis.Z, c);
         CreateFromQuaternion(in jq, out JMatrix result);
@@ -228,7 +228,7 @@ public struct JMatrix(
     {
         JMatrix result = Identity;
 
-        (Real s, Real c) = StableMath.SinCos(radians);
+        (Real s, Real c) = MathR.SinCos(radians);
 
         // [  1  0  0  ]
         // [  0  c -s  ]
@@ -250,7 +250,7 @@ public struct JMatrix(
     {
         JMatrix result = Identity;
 
-        (Real s, Real c) = StableMath.SinCos(radians);
+        (Real s, Real c) = MathR.SinCos(radians);
 
         // [  c  0  s  ]
         // [  0  1  0  ]
@@ -272,7 +272,7 @@ public struct JMatrix(
     {
         JMatrix result = Identity;
 
-        (Real s, Real c) = StableMath.SinCos(radians);
+        (Real s, Real c) = MathR.SinCos(radians);
 
         // [  c -s  0  ]
         // [  s  c  0  ]

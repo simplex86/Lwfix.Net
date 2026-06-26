@@ -149,7 +149,7 @@ public unsafe class LinearMotor : Constraint<LinearMotor.LinearMotorData>
     /// </summary>
     public Real Impulse => Data.AccumulatedImpulse;
 
-    public static void PrepareForIterationLinearMotor(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationLinearMotor(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, LinearMotorData>(ref constraint);
 
@@ -181,7 +181,7 @@ public unsafe class LinearMotor : Constraint<LinearMotor.LinearMotorData>
         drawer.DrawSegment(body2.Position, body2.Position + axis2 * axisLength);
     }
 
-    public static void IterateLinearMotor(ref ConstraintData constraint, Real idt)
+    internal static void IterateLinearMotor(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, LinearMotorData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

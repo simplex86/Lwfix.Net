@@ -112,7 +112,7 @@ public unsafe class PointOnPlane : Constraint<PointOnPlane.SliderData>
         (data.Min, data.Max) = limit;
     }
 
-    public static void PrepareForIterationPointOnPlane(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationPointOnPlane(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, SliderData>(ref constraint);
         ref RigidBodyData body1 = ref data.Body1.Data;
@@ -212,7 +212,7 @@ public unsafe class PointOnPlane : Constraint<PointOnPlane.SliderData>
     /// </summary>
     public Real Impulse => Data.AccumulatedImpulse;
 
-    public static void IteratePointOnPlane(ref ConstraintData constraint, Real idt)
+    internal static void IteratePointOnPlane(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, SliderData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

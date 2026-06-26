@@ -25,7 +25,7 @@ namespace SimplexLab.Fixed.Physics.Collision;
 /// via <see cref="GetClosest"/>.
 /// </remarks>
 [StructLayout(LayoutKind.Sequential)]
-public unsafe struct SimplexSolverAB
+internal unsafe struct SimplexSolverAB
 {
     private static readonly Real Epsilon = (Real)1e-8;
 
@@ -54,7 +54,7 @@ public unsafe struct SimplexSolverAB
     /// <summary>
     /// Resets the solver to an empty simplex.
     /// </summary>
-    public void Reset()
+    internal void Reset()
     {
         usageMask = 0;
     }
@@ -267,7 +267,7 @@ public unsafe struct SimplexSolverAB
     /// </summary>
     /// <param name="pointA">The closest point on shape A.</param>
     /// <param name="pointB">The closest point on shape B.</param>
-    public void GetClosest(out JVector pointA, out JVector pointB)
+    internal void GetClosest(out JVector pointA, out JVector pointB)
     {
         pointA = JVector.Zero;
         pointB = JVector.Zero;
@@ -295,7 +295,7 @@ public unsafe struct SimplexSolverAB
     /// <c>false</c> if the origin is enclosed by the tetrahedron.
     /// </returns>
     [SkipLocalsInit]
-    public bool AddVertex(in Vertex vertex, out JVector closest)
+    internal bool AddVertex(in Vertex vertex, out JVector closest)
     {
         Unsafe.SkipInit(out closest);
 

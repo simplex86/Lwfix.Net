@@ -137,7 +137,7 @@ public unsafe class BallSocket : Constraint<BallSocket.BallSocketData>
         }
     }
 
-    public static void PrepareForIterationBallSocket(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationBallSocket(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, BallSocketData>(ref constraint);
         ref RigidBodyData body1 = ref data.Body1.Data;
@@ -214,7 +214,7 @@ public unsafe class BallSocket : Constraint<BallSocket.BallSocketData>
     /// </summary>
     public JVector Impulse => Data.AccumulatedImpulse;
 
-    public static void IterateBallSocket(ref ConstraintData constraint, Real idt)
+    internal static void IterateBallSocket(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, BallSocketData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

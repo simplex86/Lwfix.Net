@@ -16,12 +16,12 @@ namespace SimplexLab.Fixed.Physics.Collision;
 /// The Minkowski difference A - B is defined as the set of all points (a - b) where a is in A and b is in B.
 /// This is the fundamental construct used by GJK and EPA algorithms to detect collisions.
 /// </remarks>
-public static class MinkowskiDifference
+internal static class MinkowskiDifference
 {
     /// <summary>
     /// Represents a vertex on the Minkowski difference of two shapes.
     /// </summary>
-    public struct Vertex
+    internal struct Vertex
     {
         /// <summary>The point on the Minkowski difference: <c>V = A - B</c>.</summary>
         public JVector V;
@@ -36,7 +36,7 @@ public static class MinkowskiDifference
         /// Creates a vertex with only the difference point set.
         /// </summary>
         /// <param name="v">The Minkowski difference point.</param>
-        public Vertex(JVector v)
+        internal Vertex(JVector v)
         {
             V = v;
         }
@@ -54,7 +54,7 @@ public static class MinkowskiDifference
     /// <param name="direction">The search direction.</param>
     /// <param name="v">The resulting vertex containing support points from both shapes.</param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Support<Ta,Tb>(in Ta supportA, in Tb supportB, in JQuaternion orientationB,
+    internal static void Support<Ta,Tb>(in Ta supportA, in Tb supportB, in JQuaternion orientationB,
         in JVector positionB, in JVector direction, out Vertex v) where Ta : ISupportMappable where Tb : ISupportMappable
     {
         JVector.Negate(direction, out JVector tmp);
@@ -79,7 +79,7 @@ public static class MinkowskiDifference
     /// <param name="positionB">The position of shape B.</param>
     /// <param name="center">The resulting vertex representing the center of the Minkowski difference.</param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void GetCenter<Ta,Tb>(in Ta supportA, in Tb supportB, in JQuaternion orientationB, in JVector positionB,
+    internal static void GetCenter<Ta,Tb>(in Ta supportA, in Tb supportB, in JQuaternion orientationB, in JVector positionB,
         out Vertex center) where Ta : ISupportMappable where Tb : ISupportMappable
     {
         supportA.GetCenter(out center.A);

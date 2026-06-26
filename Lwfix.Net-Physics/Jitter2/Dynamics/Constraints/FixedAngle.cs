@@ -78,7 +78,7 @@ public unsafe class FixedAngle : Constraint<FixedAngle.FixedAngleData>
         data.Q0 = q2.Conjugate() * q1;
     }
 
-    public static void PrepareForIterationFixedAngle(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationFixedAngle(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, FixedAngleData>(ref constraint);
 
@@ -153,7 +153,7 @@ public unsafe class FixedAngle : Constraint<FixedAngle.FixedAngleData>
     /// </summary>
     public JVector Impulse => Data.AccumulatedImpulse;
 
-    public static void IterateFixedAngle(ref ConstraintData constraint, Real idt)
+    internal static void IterateFixedAngle(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, FixedAngleData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

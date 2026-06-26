@@ -82,7 +82,7 @@ public struct FixedVector4
 /// Static helper exposing the subset of <c>System.Runtime.Intrinsics.Vector</c>
 /// operations used by the engine, operating on <see cref="VectorReal"/>.
 /// </summary>
-public static class FixedVector
+internal static class FixedVector
 {
     // All-ones lane used to represent a true SIMD mask lane.
     private static readonly Real MaskTrue = Fixed32.FromRaw(-1);

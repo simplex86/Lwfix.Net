@@ -342,7 +342,7 @@ public unsafe struct CollisionManifold
         for (int i = 0; i < manifoldCount; i++)
         {
             JVector delta = manifoldA[i] - centroid;
-            angles[i] = StableMath.Atan2(JVector.Dot(delta, tangent2), JVector.Dot(delta, tangent1));
+            angles[i] = MathR.Atan2(JVector.Dot(delta, tangent2), JVector.Dot(delta, tangent1));
             order[i] = i;
         }
 

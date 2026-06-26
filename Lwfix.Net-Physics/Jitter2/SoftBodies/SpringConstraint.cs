@@ -230,7 +230,7 @@ public unsafe class SpringConstraint : Constraint<SpringConstraint.SpringData>
     /// </summary>
     /// <param name="constraint">The constraint data reference.</param>
     /// <param name="idt">The inverse substep duration (1/dt).</param>
-    public static void PrepareForIterationSpringConstraint(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationSpringConstraint(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, SpringData>(ref constraint);
         ref RigidBodyData body1 = ref data.Body1.Data;
@@ -298,7 +298,7 @@ public unsafe class SpringConstraint : Constraint<SpringConstraint.SpringData>
     /// </summary>
     /// <param name="constraint">The constraint data reference.</param>
     /// <param name="idt">The inverse substep duration (1/dt).</param>
-    public static void IterateSpringConstraint(ref ConstraintData constraint, Real idt)
+    internal static void IterateSpringConstraint(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, SpringData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

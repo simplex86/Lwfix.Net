@@ -17,7 +17,7 @@ namespace SimplexLab.Fixed.Physics.Parallelization;
 /// These methods divide collections into batches and distribute them across worker threads.
 /// The batch count is determined by the task threshold and available threads.
 /// </remarks>
-public static class ParallelExtensions
+internal static class ParallelExtensions
 {
     /// <summary>
     /// Processes array elements in parallel batches.

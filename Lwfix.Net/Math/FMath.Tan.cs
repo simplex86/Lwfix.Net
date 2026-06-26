@@ -1,4 +1,4 @@
-﻿namespace SimplexLab.Fixed
+namespace SimplexLab.Fixed
 {
     /// <summary>
     /// 定点数 - 正切
@@ -47,7 +47,7 @@
         /// <returns></returns>
         public static T Atan2<T>(T y, T x) where T : struct, IFixed<T>
         {
-            return T.Atan2(x, y);
+            return T.Atan2(y, x);
         }
     }
 }

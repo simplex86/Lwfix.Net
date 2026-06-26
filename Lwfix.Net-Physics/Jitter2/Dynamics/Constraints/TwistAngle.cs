@@ -89,8 +89,8 @@ public unsafe class TwistAngle : Constraint<TwistAngle.TwistLimitData>
         JVector.NormalizeInPlace(ref axis1);
         JVector.NormalizeInPlace(ref axis2);
 
-        data.Angle1 = StableMath.Sin((Real)limit.From / (Real)2.0);
-        data.Angle2 = StableMath.Sin((Real)limit.To / (Real)2.0);
+        data.Angle1 = MathR.Sin((Real)limit.From / (Real)2.0);
+        data.Angle2 = MathR.Sin((Real)limit.To / (Real)2.0);
 
         // Calculate local axes
         JVector u1 = JVector.ConjugatedTransform(axis1, body1.Orientation);
@@ -127,8 +127,8 @@ public unsafe class TwistAngle : Constraint<TwistAngle.TwistLimitData>
             ArgumentCheck.Finite(value.To, nameof(value.To));
 
             ref TwistLimitData data = ref Data;
-            data.Angle1 = StableMath.Sin((Real)value.From / (Real)2.0);
-            data.Angle2 = StableMath.Sin((Real)value.To / (Real)2.0);
+            data.Angle1 = MathR.Sin((Real)value.From / (Real)2.0);
+            data.Angle2 = MathR.Sin((Real)value.To / (Real)2.0);
         }
     }
 
@@ -145,7 +145,7 @@ public unsafe class TwistAngle : Constraint<TwistAngle.TwistLimitData>
         Initialize(axis1, axis2, AngularLimit.Fixed);
     }
 
-    public static void PrepareForIterationTwistAngle(ref ConstraintData constraint, Real idt)
+    internal static void PrepareForIterationTwistAngle(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, TwistLimitData>(ref constraint);
 
@@ -218,7 +218,7 @@ public unsafe class TwistAngle : Constraint<TwistAngle.TwistLimitData>
             }
 
             Real error = JVector.Dot(data.B, new JVector(quat0.X, quat0.Y, quat0.Z));
-            return (JAngle)((Real)2.0 * StableMath.Asin(error));
+            return (JAngle)((Real)2.0 * MathR.Asin(error));
         }
     }
 
@@ -272,7 +272,7 @@ public unsafe class TwistAngle : Constraint<TwistAngle.TwistLimitData>
         drawer.DrawSegment(body2.Position, body2.Position + axis * axisLength);
     }
 
-    public static void IterateTwistAngle(ref ConstraintData constraint, Real idt)
+    internal static void IterateTwistAngle(ref ConstraintData constraint, Real idt)
     {
         ref var data = ref Unsafe.As<ConstraintData, TwistLimitData>(ref constraint);
         ref RigidBodyData body1 = ref constraint.Body1.Data;

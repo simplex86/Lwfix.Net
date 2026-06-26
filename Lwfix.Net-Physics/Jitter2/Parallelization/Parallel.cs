@@ -15,7 +15,7 @@ namespace SimplexLab.Fixed.Physics.Parallelization;
 /// <remarks>
 /// This class is used internally to distribute work across worker threads via <see cref="ThreadPool"/>.
 /// </remarks>
-public static class Parallel
+internal static class Parallel
 {
     /// <summary>
     /// Represents a batch defined by a start index, an end index, and a batch index.

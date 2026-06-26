@@ -43,7 +43,7 @@ public partial struct JVector
     /// Thrown when <typeparamref name="T"/> does not have the same size as <see cref="JVector"/>.
     /// </exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public T UnsafeAs<T>() where T : unmanaged
+    internal T UnsafeAs<T>() where T : unmanaged
     {
         if (Unsafe.SizeOf<T>() != Unsafe.SizeOf<JVector>())
         {
@@ -66,7 +66,7 @@ public partial struct JVector
     /// Thrown when <typeparamref name="T"/> does not have the same size as <see cref="JVector"/>.
     /// </exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static JVector UnsafeFrom<T>(in T value) where T : unmanaged
+    internal static JVector UnsafeFrom<T>(in T value) where T : unmanaged
     {
         if (Unsafe.SizeOf<T>() != Unsafe.SizeOf<JVector>())
         {
@@ -98,7 +98,7 @@ public partial struct JQuaternion
     /// Thrown when <typeparamref name="T"/> does not have the same size as <see cref="JQuaternion"/>.
     /// </exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public T UnsafeAs<T>() where T : unmanaged
+    internal T UnsafeAs<T>() where T : unmanaged
     {
         if (Unsafe.SizeOf<T>() != Unsafe.SizeOf<JQuaternion>())
         {
@@ -122,7 +122,7 @@ public partial struct JQuaternion
     /// Thrown when <typeparamref name="T"/> does not have the same size as <see cref="JQuaternion"/>.
     /// </exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static JQuaternion UnsafeFrom<T>(in T value) where T : unmanaged
+    internal static JQuaternion UnsafeFrom<T>(in T value) where T : unmanaged
     {
         if (Unsafe.SizeOf<T>() != Unsafe.SizeOf<JQuaternion>())
         {
@@ -141,7 +141,7 @@ public partial struct JQuaternion
 
 #if DEBUG
 
-public static class UnsafeBase64Serializer<T> where T : unmanaged
+internal static class UnsafeBase64Serializer<T> where T : unmanaged
 {
     public static string Serialize(in T value)
     {

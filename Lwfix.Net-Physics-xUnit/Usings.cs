@@ -1,0 +1,11 @@
+global using Xunit;
+global using SimplexLab.Fixed;
+global using SimplexLab.Fixed.Physics;
+global using SimplexLab.Fixed.Physics.Collision;
+global using SimplexLab.Fixed.Physics.Collision.Shapes;
+global using SimplexLab.Fixed.Physics.DataStructures;
+global using SimplexLab.Fixed.Physics.Dynamics;
+global using SimplexLab.Fixed.Physics.Dynamics.Constraints;
+global using SimplexLab.Fixed.Physics.LinearMath;
+global using Real = SimplexLab.Fixed.Fixed32;
+global using MathR = SimplexLab.Fixed.FMath;

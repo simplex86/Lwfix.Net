@@ -5,7 +5,11 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net", "Lwfix.Net\Lwfix.Net.csproj", "{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net-Test", "Lwfix.Net-Test\Lwfix.Net-Test.csproj", "{2A0D1159-56B2-4038-9617-032E735D1FE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net-Physics", "Lwfix.Net-Physics\Lwfix.Net-Physics.csproj", "{AB195730-A51B-4B1D-9442-515D3615EAD8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net-xUnit", "Lwfix.Net-xUnit\Lwfix.Net-xUnit.csproj", "{42B0C95E-6E5A-425D-9199-637E2CE67D2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lwfix.Net-Physics-xUnit", "Lwfix.Net-Physics-xUnit\Lwfix.Net-Physics-xUnit.csproj", "{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,23 @@ Global
 		{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A0D1159-56B2-4038-9617-032E735D1FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A0D1159-56B2-4038-9617-032E735D1FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A0D1159-56B2-4038-9617-032E735D1FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A0D1159-56B2-4038-9617-032E735D1FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C50D3060-C085-4E6B-8346-02A25A4CD6D7}
 	EndGlobalSection
 EndGlobal

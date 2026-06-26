@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LwfixPhysics.Net-xUnit", "L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LwfixPhysics.Net-Jitter2Demo", "LwfixPhysics.Net-Jitter2Demo\LwfixPhysics.Net-Jitter2Demo.csproj", "{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lwfix.Net-Benchmark", "Lwfix.Net-Benchmark\Lwfix.Net-Benchmark.csproj", "{7F59D113-E860-4376-9BB9-D028D7A95CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F59D113-E860-4376-9BB9-D028D7A95CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F59D113-E860-4376-9BB9-D028D7A95CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F59D113-E860-4376-9BB9-D028D7A95CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F59D113-E860-4376-9BB9-D028D7A95CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

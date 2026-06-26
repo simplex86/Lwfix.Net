@@ -215,5 +215,47 @@ namespace SimplexLab.Fixed
         {
             return value.IsFractional();
         }
+
+        /// <summary>
+        /// 检测当前定点数是否为正常数（非零、有限、非NaN）
+        /// <para>定点数没有IEEE 754的"非规格化"概念，因此正常数即非零、有限且非NaN的值</para>
+        /// </summary>
+        /// <returns>如果当前定点数为正常数，返回true；否则返回false</returns>
+        public bool IsNormal()
+        {
+            return !IsZero() && !IsNaN() && !IsInfinity();
+        }
+
+        /// <summary>
+        /// 检测给定定点数是否为正常数（非零、有限、非NaN）
+        /// <para>定点数没有IEEE 754的"非规格化"概念，因此正常数即非零、有限且非NaN的值</para>
+        /// </summary>
+        /// <param name="value">要检测的定点数</param>
+        /// <returns>如果给定定点数为正常数，返回true；否则返回false</returns>
+        public static bool IsNormal(Fixed32 value)
+        {
+            return value.IsNormal();
+        }
+
+        /// <summary>
+        /// 检测当前定点数是否为有限数（非NaN、非无穷大）
+        /// <para>检查定点数是否为有限数</para>
+        /// </summary>
+        /// <returns>如果当前定点数为有限数，返回true；否则返回false</returns>
+        public bool IsFinite()
+        {
+            return !IsNaN() && !IsInfinity();
+        }
+
+        /// <summary>
+        /// 检测给定定点数是否为有限数（非NaN、非无穷大）
+        /// <para>检查定点数是否为有限数</para>
+        /// </summary>
+        /// <param name="value">要检测的定点数</param>
+        /// <returns>如果给定定点数为有限数，返回true；否则返回false</returns>
+        public static bool IsFinite(Fixed32 value)
+        {
+            return value.IsFinite();
+        }
     }
 }

@@ -1030,6 +1030,36 @@ namespace SimplexLab.Fixed
         /// <returns>如果有小数部分则返回true，否则返回false</returns>
         abstract static bool IsFractional(T n);
 
+        /// <summary>
+        /// 是否为正常数（非零、有限、非NaN）
+        /// <para>检查当前定点数是否为正常数</para>
+        /// </summary>
+        /// <returns>如果是正常数则返回true；否则返回false</returns>
+        bool IsNormal();
+
+        /// <summary>
+        /// 是否为正常数（非零、有限、非NaN）
+        /// <para>检查指定定点数是否为正常数</para>
+        /// </summary>
+        /// <param name="n">要检查的定点数</param>
+        /// <returns>如果是正常数则返回true；否则返回false</returns>
+        abstract static bool IsNormal(T n);
+
+        /// <summary>
+        /// 是否为有限数（非NaN、非无穷大）
+        /// <para>检查当前定点数是否为有限数</para>
+        /// </summary>
+        /// <returns>如果是有限数则返回true；否则返回false</returns>
+        bool IsFinite();
+
+        /// <summary>
+        /// 是否为有限数（非NaN、非无穷大）
+        /// <para>检查指定定点数是否为有限数</para>
+        /// </summary>
+        /// <param name="n">要检查的定点数</param>
+        /// <returns>如果是有限数则返回true；否则返回false</returns>
+        abstract static bool IsFinite(T n);
+
         #endregion
 
         #region sign

@@ -5,13 +5,13 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net", "Lwfix.Net\Lwfix.Net.csproj", "{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net-Physics", "Lwfix.Net-Physics\Lwfix.Net-Physics.csproj", "{AB195730-A51B-4B1D-9442-515D3615EAD8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net-xUnit", "Lwfix.Net-xUnit\Lwfix.Net-xUnit.csproj", "{42B0C95E-6E5A-425D-9199-637E2CE67D2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net-Physics-xUnit", "Lwfix.Net-Physics-xUnit\Lwfix.Net-Physics-xUnit.csproj", "{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LwfixPhysics.Net", "LwfixPhysics.Net\LwfixPhysics.Net.csproj", "{B53C2B57-823B-47B4-9063-B652FE67A9B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lwfix.Net-Physics-JDemo", "Lwfix.Net-Physics-Jitter2Demo\Lwfix.Net-Physics-JDemo.csproj", "{8E43A494-388F-4AE5-8566-3800D792CAFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LwfixPhysics.Net-xUnit", "LwfixPhysics.Net-xUnit\LwfixPhysics.Net-xUnit.csproj", "{FAED0345-477A-4AC6-A6A9-384F9BA26025}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LwfixPhysics.Net-Jitter2Demo", "LwfixPhysics.Net-Jitter2Demo\LwfixPhysics.Net-Jitter2Demo.csproj", "{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +23,22 @@ Global
 		{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C50A5C6C-3B05-42E0-A306-0FE8E6BE60B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB195730-A51B-4B1D-9442-515D3615EAD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42B0C95E-6E5A-425D-9199-637E2CE67D2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8CE3DBA-E7BC-4091-AB0B-F479EAE2142E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E43A494-388F-4AE5-8566-3800D792CAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E43A494-388F-4AE5-8566-3800D792CAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E43A494-388F-4AE5-8566-3800D792CAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E43A494-388F-4AE5-8566-3800D792CAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53C2B57-823B-47B4-9063-B652FE67A9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53C2B57-823B-47B4-9063-B652FE67A9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53C2B57-823B-47B4-9063-B652FE67A9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53C2B57-823B-47B4-9063-B652FE67A9B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAED0345-477A-4AC6-A6A9-384F9BA26025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAED0345-477A-4AC6-A6A9-384F9BA26025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAED0345-477A-4AC6-A6A9-384F9BA26025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAED0345-477A-4AC6-A6A9-384F9BA26025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD1DFB5-EEE3-4EC2-B0D3-56E28E358824}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

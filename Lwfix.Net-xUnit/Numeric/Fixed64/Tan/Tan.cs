@@ -1,0 +1,38 @@
+using Xunit;
+using SimplexLab.Fixed;
+
+namespace LwfixTest.Fixed.Numerics
+{
+    public partial class TTan64
+    {
+        private readonly static List<double> normal_numbers =
+        [
+            Fixed64.Quarter_PI.ToDouble(),
+            0.1,
+            26.358,
+            -13.784,
+            89.0,
+            -906.786,
+            979.358,
+        ];
+
+        private const double TOLERANCE = 10e-5;
+        private const double FAST_TOLERANCE = 10e-3;
+
+        [Fact]
+        public void Normal()
+        {
+            foreach (var n in normal_numbers)
+            {
+                var f = new Fixed64(n);
+
+                var s1 = Math.Tan(n);
+                var s2 = Fixed64.Tan(f);
+                var s3 = Fixed64.FastTan(f);
+
+                Assert.Equal(s1, s2.ToDouble(), TOLERANCE);
+                Assert.Equal(s1, s3.ToDouble(), FAST_TOLERANCE);
+            }
+        }
+    }
+}

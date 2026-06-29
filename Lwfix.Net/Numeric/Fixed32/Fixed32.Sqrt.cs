@@ -1,3 +1,5 @@
+using System;
+
 namespace SimplexLab.Lwfix
 {
     /// <summary>
@@ -7,14 +9,16 @@ namespace SimplexLab.Lwfix
     public partial struct Fixed32 : IFixed<Fixed32>
     {
         /// <summary>
-        /// 半位宽
-        /// <para>用于平方根计算的中间变量</para>
-        /// </summary>
-        private const byte HALF_TOTAL_BITS = TOTAL_BITS / 2;
-
-        /// <summary>
         /// 计算平方根
-        /// <para>使用二进制搜索算法计算定点数的平方根</para>
+        /// <para>使用牛顿迭代法计算定点数的平方根</para>
+        /// <para>算法说明：
+        /// <list type="bullet">
+        /// <item>目标：result_raw = sqrt(s_raw) * 2^16（其中 s_raw 为输入原始值）</item>
+        /// <item>牛顿迭代：x_{n+1} = (x_n + S/x_n) / 2，二次收敛</item>
+        /// <item>初始估计：硬件 Math.Sqrt（IEEE 754，约 52 位精度）</item>
+        /// <item>S/x 用硬件 ulong 除法精确计算，无精度损失</item>
+        /// <item>1 次牛顿迭代后误差 &lt; 1 ULP（初始误差被牛顿步抵消）</item>
+        /// </list></para>
         /// </summary>
         /// <returns>平方根值</returns>
         /// <remarks>
@@ -37,47 +41,47 @@ namespace SimplexLab.Lwfix
             if (IsZero()) return Zero;
             if (IsNegative()) return NaN;
 
-            var val = (ulong)rawvalue;
-            var bit = 1UL << (TOTAL_BITS - 2);
-            while (bit > val) bit >>= 2;
+            var s_raw = (ulong)rawvalue;
 
-            var res = 0UL;
-            for (int i = 0; i < 2; i++)
+            // 初始估计：x0 ≈ sqrt(s_raw) * 2^16（即结果的 raw 值）
+            // 使用硬件 double sqrt（SQRTPD 指令，IEEE 754，约 52 位精度，跨平台一致）
+            ulong x = (ulong)(Math.Sqrt((double)s_raw) * 65536.0 + 0.5);
+
+            // 牛顿迭代：x = (x + S/x) / 2
+            // S/x 的 raw 值 = s_raw * 2^32 / x_raw
+            // 用硬件 ulong 除法精确计算（避免 128 位除法和倒数精度问题）：
+            //   s_raw * 2^32 / x = (s_raw / x) * 2^32 + (s_raw % x) * 2^32 / x
+
+            ulong q = s_raw / x;   // s_raw / x 的整数部分（≈ x_raw / 2^32）
+            ulong r = s_raw % x;    // 余数（r < x）
+
+            // 小数部分：r * 2^32 / x（结果 < 2^32，因为 r < x）
+            // r * 2^32 可能溢出 ulong（当 r >= 2^32 时），需分情况处理
+            ulong frac;
+            if (r < (1UL << 32))
             {
-                while (bit != 0)
-                {
-                    if (val >= res + bit)
-                    {
-                        val -= res + bit;
-                        res = (res >> 1) + bit;
-                    }
-                    else
-                    {
-                        res >>= 1;
-                    }
-                    bit >>= 2;
-                }
-
-                if (i == 0)
-                {
-                    if (val > (1UL << HALF_TOTAL_BITS) - 1)
-                    {
-                        val -= res;
-                        val = (val << HALF_TOTAL_BITS) - 0x80000000UL;
-                        res = (res << HALF_TOTAL_BITS) + 0x80000000UL;
-                    }
-                    else
-                    {
-                        val <<= HALF_TOTAL_BITS;
-                        res <<= HALF_TOTAL_BITS;
-                    }
-
-                    bit = 1UL << (HALF_TOTAL_BITS - 2);
-                }
+                // r * 2^32 在 ulong 范围内，直接除
+                frac = (r << 32) / x;
+            }
+            else
+            {
+                // r * 2^32 溢出，拆分为两次 16 位移位：
+                // r * 2^32 = (r * 2^16) * 2^16
+                ulong temp = r << 16;        // r < 2^48，temp < 2^64，不溢出
+                ulong q1 = temp / x;          // q1 < 2^16（因为 temp < x * 2^16）
+                ulong rem1 = temp % x;        // rem1 < x
+                ulong q2 = (rem1 << 16) / x;  // rem1 < 2^48，rem1 << 16 < 2^64，不溢出
+                frac = (q1 << 16) + q2;
             }
 
-            if (val > res) res++;
-            return FromRaw((long)res);
+            var s_over_x = (q << 32) + frac;
+
+            // 牛顿步：x = (x + S/x) / 2
+            // 初始估计误差 e0 被抵消：(x_true + e0 + x_true - e0) / 2 = x_true
+            // 残余误差仅来自除法取整（< 1 raw 单位）
+            x = (x + s_over_x) >> 1;
+
+            return FromRaw((long)x);
         }
 
         /// <summary>

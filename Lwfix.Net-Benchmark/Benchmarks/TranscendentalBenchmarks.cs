@@ -7,8 +7,8 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
     /// <summary>
     /// Fixed32 超越函数基准
     /// <para>对应优化项：
-    /// - 优化6：Exp 固定迭代次数（当前 while(ter != Zero) 不定循环）
-    /// Cbrt 见 SqrtBenchmarks（优化7）</para>
+    /// - 优化6：Exp 固定迭代 + raw 算术（已完成，3.60x 加速）</para>
+    /// Cbrt 见 SqrtBenchmarks（优化7）
     /// </summary>
     [MemoryDiagnoser]
     [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
@@ -29,7 +29,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
             _exponent = BenchmarkData.GenerateFixed32(0.0, 5.0, seed: 1400);
         }
 
-        // ── Exp：优化6 的目标 ─────────────────────────────────────
+        // ── Exp：优化6 已完成（固定迭代 + raw 算术，3.60x 加速）────
 
         [Benchmark(Baseline = true), BenchmarkCategory("Exp")]
         public Fixed32 Exp()

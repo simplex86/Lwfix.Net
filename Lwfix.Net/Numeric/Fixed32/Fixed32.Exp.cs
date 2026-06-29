@@ -7,6 +7,12 @@ namespace SimplexLab.Lwfix
     public partial struct Fixed32 : IFixed<Fixed32>
     {
         /// <summary>
+        /// 泰勒级数固定迭代次数
+        /// <para>|r| ≤ 0.5 * ln(2) ≈ 0.347，第 9 项起归零，10 次留安全余量</para>
+        /// </summary>
+        private const int EXP_TAYLOR_ITERATIONS = 10;
+
+        /// <summary>
         /// 计算e的幂
         /// <para>计算e的当前定点数次方</para>
         /// </summary>
@@ -22,7 +28,13 @@ namespace SimplexLab.Lwfix
         /// 实现原理：
         /// <list type="bullet">
         /// <item>分解 x = k * ln(2) + r，其中 |r| ≤ 0.5 * ln(2)</item>
-        /// <item>计算 e^r 的泰勒级数展开</item>
+        /// <item>计算 e^r 的泰勒级数展开（固定 10 次迭代）</item>
+        /// <item>泰勒级数用 raw 算术直接计算，避免 Fixed32 算子开销：
+        ///   <list type="bullet">
+        ///   <item>乘法：imul + sar（替代 Mul 的 4 项分解）</item>
+        ///   <item>除法：硬件 idiv（替代 Div 的逐位长除法）</item>
+        ///   <item>加法：整数 add（替代 Add 的溢出检查）</item>
+        ///   </list></item>
         /// <item>计算 2^k * e^r 得到最终结果</item>
         /// </list>
         /// </remarks>
@@ -37,15 +49,20 @@ namespace SimplexLab.Lwfix
             var k = (this / Ln2).Round();
             var residual = this - k * Ln2;
 
-            // 计算 e^r 的泰勒级数展开
-            var ter = One;
-            var sum = One;
-            var idx = 0;
-            while (ter != Zero) // 迭代多次确保精度
+            // 计算 e^r 的泰勒级数展开（raw 算术，避免 Fixed32 算子开销）
+            // ter_raw = r^n / n! * 2^32，迭代：ter = ter * r / n
+            // |r| ≤ 0.5 * ln(2) ≈ 0.347，第 9 项归零，固定 10 次迭代留余量
+            //
+            // 溢出分析：|ter_raw| ≤ 2^32，|r_raw| ≤ 0.5 * Ln2_raw ≈ 1.49e9
+            //   乘积 ≤ 2^32 * 1.49e9 ≈ 6.4e18 < long.MaxValue (9.2e18) ✓
+            var r_raw = residual.rawvalue;
+            long ter = One.rawvalue;   // 2^32
+            long sum = One.rawvalue;   // 2^32
+            for (int idx = 1; idx <= EXP_TAYLOR_ITERATIONS; idx++)
             {
-                idx++;
-                ter = ter * residual / idx;
-                sum += ter;
+                ter = (ter * r_raw) >> FRACTIONAL_BITS;  // 乘 r：imul + sar
+                ter /= idx;                                // 除 n：硬件 idiv
+                sum += ter;                                // 累加：整数 add
             }
 
             var s = k.IsNegative();
@@ -55,7 +72,7 @@ namespace SimplexLab.Lwfix
             if (s) pow = pow.Reciprocal();
 
             // e^x = e^(k * ln(2) + r) = 2^k * e^r
-            return pow * sum;
+            return pow * FromRaw(sum);
         }
 
         /// <summary>

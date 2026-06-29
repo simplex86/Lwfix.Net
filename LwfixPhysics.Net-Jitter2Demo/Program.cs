@@ -34,7 +34,7 @@ public static class Program
             Console.ForegroundColor = previous;
         };
 
-        CreationSettings settings = new(1200, 800, "Lwfix.Net-Physics - Jitter2 Demo");
+        CreationSettings settings = new(1200, 800, "LwfixPhysics.Net-Jitter2Demo");
 
         try
         {

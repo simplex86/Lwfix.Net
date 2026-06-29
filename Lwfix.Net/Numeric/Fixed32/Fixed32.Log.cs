@@ -1,3 +1,6 @@
+using System;
+using System.Numerics;
+
 namespace SimplexLab.Lwfix
 {
     /// <summary>
@@ -179,27 +182,33 @@ namespace SimplexLab.Lwfix
             var b = 1L << (FRACTIONAL_BITS - 1);
             var y = 0L;
 
-            var rawX = rawvalue;
-            while (rawX < One.rawvalue)
+            // 归一化到 [1, 2)，即 z_raw ∈ [2^32, 2^33)
+            // 使用硬件 lzcnt 指令替换逐位移位 while 循环
+            // 目标：最高有效位落在 bit 32，对应 lz = 31
+            var z_raw = rawvalue;
+            var lz = BitOperations.LeadingZeroCount((ulong)z_raw);
+            var shift = lz - 31;     // 正：需左移（v<1）；负：需右移（v>=2）
+            if (shift > 0)
             {
-                rawX <<= 1;
-                y -= One.rawvalue;
+                z_raw <<= shift;
+                y -= shift * One.rawvalue;
+            }
+            else if (shift < 0)
+            {
+                z_raw >>= -shift;
+                y += (-shift) * One.rawvalue;
             }
 
-            while (rawX >= Two.rawvalue)
-            {
-                rawX >>= 1;
-                y += One.rawvalue;
-            }
-
-            var z = FromRaw(rawX);
-
+            // 逐位算法：32 次迭代，每次平方 z 并检查是否 >= 2
+            // z_raw ∈ [2^32, 2^33)，z_raw² ∈ [2^64, 2^66) — 用 UInt128 避免溢出
+            // UInt128 在 .NET 8+ 被 JIT 编译为 64×64→128 硬件乘法指令（mulx）
+            // 数值等价于 Fixed32.Mul(z, z)，但绕开了 4 项分解 + 溢出检查开销
             for (int i = 0; i < FRACTIONAL_BITS; i++)
             {
-                z = z * z;
-                if (z.rawvalue >= Two.rawvalue)
+                z_raw = (long)((UInt128)(ulong)z_raw * (ulong)z_raw >> FRACTIONAL_BITS);
+                if (z_raw >= Two.rawvalue)
                 {
-                    z = FromRaw(z.rawvalue >> 1);
+                    z_raw >>= 1;
                     y += b;
                 }
                 b >>= 1;
@@ -242,7 +251,7 @@ namespace SimplexLab.Lwfix
         /// 实现原理：
         /// <list type="bullet">
         /// <item>使用Log()计算自然对数</item>
-        /// <item>除以ln(10)得到以10为底的对数</item>
+        /// <item>除以 ln(10) 得到以10为底的对数</item>
         /// </list>
         /// </remarks>
         public Fixed32 Log10()

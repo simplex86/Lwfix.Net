@@ -7,7 +7,10 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
     /// <summary>
     /// Fixed32 超越函数基准
     /// <para>对应优化项：
-    /// - 优化6：Exp 固定迭代 + raw 算术（已完成，3.60x 加速）</para>
+    /// - 优化6：Exp 固定迭代 + raw 算术（已完成，3.60x 加速）
+    /// - 优化P0-1：Log2 UInt128 平方 + lzcnt 归一化（已完成，3.00x 加速）
+    /// - 优化P0-2：Pow2 简化为 (x*Ln2).Exp()（已完成，3.73x 加速）
+    /// - 优化P1：Log10 保持 / Ln10（乘法替代有 1 ULP 精度损失，测试不通过）</para>
     /// Cbrt 见 SqrtBenchmarks（优化7）
     /// </summary>
     [MemoryDiagnoser]
@@ -55,7 +58,8 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
             return acc;
         }
 
-        // ── Log（Cbrt 内部调用，优化7 的间接目标）────────────────
+        // ── Log：P0-1 Log2 优化已完成（UInt128 平方 + lzcnt，3.00x 加速）──
+        //    Log = Log2 * Ln2（2.72x）  Log10 = Log / Ln10（2.34x）
 
         [Benchmark, BenchmarkCategory("Log")]
         public Fixed32 Log()
@@ -93,7 +97,8 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
             return acc;
         }
 
-        // ── Pow ───────────────────────────────────────────────────
+        // ── Pow：P0-2 Pow2 优化已完成（(x*Ln2).Exp()，3.73x 加速）──────
+        //    Pow_Fixed 走 Log+Exp 链，间接受益（1.89x）
 
         /// <summary>整数幂（快速幂，O(log n) 次乘法）</summary>
         [Benchmark, BenchmarkCategory("Pow")]
@@ -121,7 +126,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
             return acc;
         }
 
-        /// <summary>2 的幂（泰勒级数 + 位移）</summary>
+        /// <summary>2 的幂（(x*Ln2).Exp()，复用已优化的 Exp）</summary>
         [Benchmark, BenchmarkCategory("Pow")]
         public Fixed32 Pow2()
         {

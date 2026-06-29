@@ -163,35 +163,16 @@ namespace SimplexLab.Lwfix
         /// <remarks>
         /// 实现原理：
         /// <list type="bullet">
-        /// <item>分离指数的整数部分和小数部分</item>
-        /// <item>对小数部分使用泰勒级数展开计算</item>
-        /// <item>对整数部分使用位移操作计算</item>
-        /// <item>对于负指数，计算倒数</item>
+        /// <item>利用恒等式 2^x = e^(x·ln2)，直接复用已优化的 Exp()</item>
+        /// <item>Exp 内部已做范围归约：x·ln2 分解为 k·ln2 + r，|r| ≤ 0.5·ln2</item>
+        /// <item>NaN/Infinity/Zero 等边界值由 Exp 的预处理逻辑自动处理</item>
         /// </list>
         /// </remarks>
         public Fixed32 Pow2(Fixed32 x)
         {
-            var s = x.IsNegative();
-            x = x.Abs();
-
-            var integer = x.ToInt();
-            x = x.Fractional();
-
-            // 计算 e^r 的泰勒级数展开
-            var ter = One;
-            var sum = One;
-            var idx = 0;
-            while (ter != Zero)
-            {
-                idx++;
-                ter = ter * x * Ln2 / new Fixed32(idx);
-                sum += ter;
-            }
-
-            sum = FromRaw(sum.rawvalue << integer);
-            if (s) sum = sum.Reciprocal();
-
-            return sum;
+            // 2^x = e^(x * ln2)
+            // Exp 的范围归约保证 |residual| ≤ 0.5·ln2，对任意 x 均成立
+            return (x * Ln2).Exp();
         }
 
         /// <summary>

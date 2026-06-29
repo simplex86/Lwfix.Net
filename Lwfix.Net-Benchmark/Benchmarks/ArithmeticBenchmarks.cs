@@ -125,7 +125,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
 
         // ── 倒数：优化16 的目标 ───────────────────────────────────
 
-        /// <summary>Reciprocal 当前实现 = One / this（走完整 Div）</summary>
+        /// <summary>Reciprocal 当前实现 = 牛顿迭代（UInt128 中间运算 + 1 次硬件除法初始估计）</summary>
         [Benchmark, BenchmarkCategory("Reciprocal")]
         public Fixed32 Reciprocal()
         {
@@ -151,7 +151,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
             return acc;
         }
 
-        /// <summary>手动 1/x（等价于 Reciprocal，用于对比调用开销）</summary>
+        /// <summary>手动 1/x（走完整 Div — 优化前 Reciprocal 的基线实现）</summary>
         [Benchmark, BenchmarkCategory("Reciprocal")]
         public Fixed32 Reciprocal_Manual()
         {

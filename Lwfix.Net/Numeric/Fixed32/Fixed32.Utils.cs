@@ -39,23 +39,30 @@ namespace SimplexLab.Lwfix
         /// <remarks>
         /// 实现原理：
         /// <list type="bullet">
-        /// <item>使用除法和乘法来计算余数，提高精度</item>
+        /// <item>使用硬件 % 指令计算余数，替代 Fixed32 除法（逐位长除法）+ 乘法</item>
         /// <item>对于负数余数，加上unit使其变为正数</item>
         /// </list>
+        /// 数学等价性：原始 quotient/unit 的舍入误差 &lt; 1 ULP，floor 后整数部分与
+        /// floor(radian.raw/unit.raw) 至多差 1，Mul(integerPart, unit) 精确（integerPart 小数位为 0），
+        /// 故 remainder.raw = radian.raw - n×unit.raw 的非负修正 ≡ radian.raw % unit.raw 的非负修正。
+        /// 且仅单次截断，精度不衰减、平台一致（纯整数运算）。
         /// </remarks>
         private static Fixed32 NormalizeRadian(Fixed32 radian, Fixed32 unit)
         {
-            // 使用除法和乘法来计算余数，提高精度
-            var quotient = radian / unit;
-            var integerPart = quotient.Floor();
-            var remainder = radian - integerPart * unit;
-            
-            if (remainder < Zero)
+            // NaN/∞ 处理（原路径通过 Div→PreprocessDiv 间接归为 NaN）
+            if (radian.IsNaN() || radian.IsPositiveInfinity() || radian.IsNegativeInfinity())
             {
-                remainder += unit;
+                return NaN;
             }
 
-            return remainder;
+            // 优化：硬件 % 替代逐位长除法（约 33 次迭代）+ Mul
+            var remainderRaw = radian.rawvalue % unit.rawvalue;
+            if (remainderRaw < 0)
+            {
+                remainderRaw += unit.rawvalue;
+            }
+
+            return FromRaw(remainderRaw);
         }
 
         /// <summary>

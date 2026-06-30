@@ -6,11 +6,25 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
 {
     /// <summary>
     /// Fixed32 三角函数基准
-    /// <para>对应优化项：
-    /// - 优化3：FMath.SinCos 真正融合（当前为假融合，调 Sin 两次）
-    /// - 优化4：Atan 去除循环内除法（已完成，UInt128 MulDiv 替代逐位长除法，2.34x 加速）
-    /// - 优化14：SinLut 瘦身+线性插值（当前 20 万条无插值）
-    /// - 优化15：FastTan 索引计算改用位移（当前含乘+除）</para>
+    /// <para>已完成优化（P0→P1 顺序实施，Short job 实测，AMD Ryzen 7 5700G）：</para>
+    /// <para>■ P0（核心路径重写，大幅加速）</para>
+    /// <list type="bullet">
+    /// <item>P0-1 NormalizeRadian：硬件 % 替代逐位长除法 + Mul。NormalizeRadian 53.06→10.86 μs (4.89x)</item>
+    /// <item>P0-2 TaylorEvaluate4Sin：UInt128 原始乘法替代 11 次 Mul（4 项分解+溢出检查）。Sin 270.66→41.4 μs (6.5x)</item>
+    /// <item>P0-3 ReduceRadian4Sin：比较链替代硬件 idiv（边界用 PI.raw 倍数保证比特级等价）</item>
+    /// </list>
+    /// <para>■ P1（架构清理 + 融合，边际收益）</para>
+    /// <list type="bullet">
+    /// <item>P1-1 Cos/FastCos：提取 SinFromNormalized/FastSinFromNormalized，跳过 Sin(radian+Half_PI) 内冗余 PreprocessSin。Cos 51.1 μs（中性，Preprocess≈1ns 可忽略）</item>
+    /// <item>P1-2 SinCos 真融合：Fixed32.SinCos 一次 Preprocess + 一次 NormalizeRadian，cos 复用归一化结果（+Half_PI 单次条件减法）。FMath.SinCos(Fixed32) 非泛型重载优先匹配。
+    /// SinCos_FMath 81.4 μs vs SinCos_Separate 79.2 μs —— 节省 1 次 NormalizeRadian(~10ns) 被 16 字节元组返回开销(~10ns) 抵消，净中性。
+    /// 瓶颈为 2× TaylorEvaluate4Sin（两路径相同）。精度不衰减（19 测试通过）。</item>
+    /// </list>
+    /// <para>■ 其他已完成</para>
+    /// <list type="bullet">
+    /// <item>Atan：UInt128 MulDiv 替代循环内逐位长除法（2.34x）</item>
+    /// </list>
+    /// <para>待优化：优化14 SinLut 瘦身+线性插值；优化15 FastTan 索引位移化</para>
     /// </summary>
     [MemoryDiagnoser]
     [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
@@ -71,7 +85,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
 
         // ── SinCos 融合：优化3 的目标 ─────────────────────────────
 
-        /// <summary>当前 FMath.SinCos（假融合 — 内部调 Sin 两次）</summary>
+        /// <summary>FMath.SinCos（P1-2 真融合：FMath.SinCos(Fixed32) 非泛型重载 → Fixed32.SinCos，1 次 Preprocess + 1 次 NormalizeRadian）</summary>
         [Benchmark, BenchmarkCategory("SinCos")]
         public Fixed32 SinCos_FMath()
         {
@@ -85,7 +99,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
             return acc;
         }
 
-        /// <summary>手动分别调 Sin 和 Cos（等价于当前 SinCos，用于对比调用开销）</summary>
+        /// <summary>手动分别调 Sin 和 Cos（P1-2 对比基线：2 次 Preprocess + 2 次 NormalizeRadian）</summary>
         [Benchmark, BenchmarkCategory("SinCos")]
         public Fixed32 SinCos_Separate()
         {

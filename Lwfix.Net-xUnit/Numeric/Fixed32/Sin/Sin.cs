@@ -1,4 +1,4 @@
-﻿using Xunit;
+using Xunit;
 using SimplexLab.Lwfix;
 
 namespace SimplexLab.Lwfix.Test.Numerics
@@ -33,6 +33,14 @@ namespace SimplexLab.Lwfix.Test.Numerics
                 Assert.Equal(s1, s2.ToDouble(), TOLERANCE);
                 Assert.Equal(s1, s3.ToDouble(), FAST_TOLERANCE);
             }
+        }
+
+        [Fact]
+        public void SinCosOverloadCheck()
+        {
+            var (sin, cos) = FMath.SinCos(Fixed32.Half_PI);
+            Assert.Equal(1.0, sin.ToDouble(), TOLERANCE);
+            Assert.Equal(0.0, cos.ToDouble(), TOLERANCE);
         }
     }
 }

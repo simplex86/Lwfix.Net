@@ -28,7 +28,11 @@ namespace SimplexLab.Lwfix
                 return r;
             }
 
-            return Sin(radian + Half_PI);
+            // 优化（P1-1）：原路径 Sin(radian + Half_PI) 会再次执行 PreprocessSin（冗余 NaN/∞ 检查）。
+            // 此处直接复用 SinFromNormalized，跳过冗余 Preprocess，数学等价：
+            // radian 有限 ⇒ radian + Half_PI 有限，PreprocessSin 必返回 false。
+            var normalized = NormalizeRadian(radian + Half_PI);
+            return SinFromNormalized(normalized);
         }
 
         /// <summary>
@@ -52,7 +56,9 @@ namespace SimplexLab.Lwfix
                 return r;
             }
 
-            return FastSin(radian + Half_PI);
+            // 优化（P1-1）：同 Cos，跳过 FastSin 内冗余 PreprocessSin。
+            var normalized = NormalizeRadian(radian + Half_PI);
+            return FastSinFromNormalized(normalized);
         }
 
         /// <summary>

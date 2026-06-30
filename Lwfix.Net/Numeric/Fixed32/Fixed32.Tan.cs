@@ -1,3 +1,5 @@
+using System;
+
 namespace SimplexLab.Lwfix
 {
     /// <summary>
@@ -249,9 +251,14 @@ namespace SimplexLab.Lwfix
             var dividend = sq2;
             var divisor = sqp1 * three;
 
+            // 优化4：使用 UInt128 MulDiv 替代循环内逐位长除法
+            // 原始：term *= dividend / divisor（Div 逐位长除法 + Mul 截断，两次误差源）
+            // 优化：term.raw = (term.raw * dividend.raw) / divisor.raw（硬件除法，单次截断）
+            // 精度更优（单次截断 vs. 原始的舍入+截断），平台一致（纯整数运算）
             for (var i = 2; i < 30; ++i)
             {
-                term *= dividend / divisor;
+                // 所有值均为正（z 已取正且 ≤1），divisor ≥ 3*(1+z²) > 0，乘积不溢出 UInt128
+                term = FromRaw((long)((UInt128)(ulong)term.rawvalue * (ulong)dividend.rawvalue / (ulong)divisor.rawvalue));
                 result += term;
 
                 dividend += sq2;

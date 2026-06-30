@@ -203,18 +203,40 @@ namespace SimplexLab.Lwfix
         /// <remarks>
         /// 优化（P1-1）：提取此辅助方法，使 <see cref="FastCos"/> 可共享查表路径，
         /// 避免重复的 Preprocess 调用。
+        /// 优化14：步长 2^19（原 2^15 最近邻）+ 线性插值。
+        /// <list type="bullet">
+        /// <item>索引：raw &gt;&gt; 19（原 raw &gt;&gt; 15），位移无开销</item>
+        /// <item>插值：v0 + (frac × (v1 - v0)) &gt;&gt; 19，纯 long 运算
+        /// （frac &lt; 2^19，delta &lt; 2^19，积 &lt; 2^38，long 足够）</item>
+        /// <item>精度：~1.9e-9（原 ~3.8e-6），提升 2000x；LUT 瘦身 16x（205887→12868）</item>
+        /// <item>末桶（index = Len-2）：v1 = 0x100000000 = sin(π/2) = 1.0，插值单调不减</item>
+        /// </list>
+        /// 精度提升、平台一致（纯整数位移+加减乘，无除法、无浮点）。
         /// </remarks>
         private static Fixed32 FastSinFromNormalized(Fixed32 normalized)
         {
             var referenced = ReduceRadian4Sin(normalized, out var sign);
 
-            var index = referenced.rawvalue >> 15;
-            if (index >= SinLut.Length) index = SinLut.Length - 1;
+            // 优化14：步长 2^19 + 线性插值
+            const int SHIFT = 19;
+            const long MASK = (1L << SHIFT) - 1;
 
-            var nearest = SinLut[index];
-            if (sign) nearest = -nearest;
+            var raw = referenced.rawvalue;
+            int index = (int)(raw >> SHIFT);
+            if (index >= SinLut.Length - 1)
+            {
+                // 末桶或越界：直接返回末项（sin(π/2) = 1.0）
+                var last = SinLut[SinLut.Length - 1];
+                return sign ? -FromRaw(last) : FromRaw(last);
+            }
 
-            return FromRaw(nearest);
+            var v0 = SinLut[index];
+            var v1 = SinLut[index + 1];
+            var frac = raw & MASK;
+            // 线性插值：v0 + frac/2^19 × (v1 - v0)
+            // frac < 2^19，|v1-v0| < 2^19（sin 最大斜率=1，步长=2^19），积 < 2^38，long 安全
+            var interp = v0 + ((frac * (v1 - v0)) >> SHIFT);
+            return sign ? -FromRaw(interp) : FromRaw(interp);
         }
 
         /// <summary>

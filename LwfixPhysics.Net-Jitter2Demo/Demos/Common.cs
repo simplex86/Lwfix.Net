@@ -221,7 +221,7 @@ public static class Common
         }
     }
 
-    public static void BuildTower(JVector pos, int height = 40, Action<RigidBody>? action = null)
+    public static void BuildTower(JVector pos, int height = 20, Action<RigidBody>? action = null)
     {
         World world = ((Playground)RenderWindow.Instance).World;
 

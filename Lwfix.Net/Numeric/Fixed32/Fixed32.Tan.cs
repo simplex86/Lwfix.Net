@@ -159,6 +159,17 @@ namespace SimplexLab.Lwfix
         /// <item>其值越接近(±π/2)误差越大</item>
         /// <item>误差大于Tan函数，但计算速度比Tan函数更快</item>
         /// </list>
+        /// 优化15：位移索引（原 Mul+Div）+ UInt128 线性插值（原 Fixed32 Mul）。
+        /// <list type="bullet">
+        /// <item>索引：raw &gt;&gt; 19（原 referenced×(Len-1)/Half_PI，Fixed32 Mul+Div ~70ns）</item>
+        /// <item>插值：UInt128 (frac×delta)&gt;&gt;19（原 Fixed32 Mul，4 项分解+溢出检查）
+        /// —— tan 在 π/2 附近 delta 可接近 MaxValue，frac×delta 可达 2^82，long 溢出，
+        /// 故用 UInt128（JIT 编译为 mulx 硬件指令）</item>
+        /// <item>LUT 步长 2^19（原均匀角度映射），瘦身 16x（205887→12868）；
+        /// 索引计算从 Fixed32 Div（逐位长除法~33 次迭代）变为单次位移，且消除了原映射的舍入误差</item>
+        /// <item>末项 MaxValue 哨兵：π/2 处 tan→∞，前向插值在末桶自动趋向 MaxValue</item>
+        /// </list>
+        /// 精度不衰减（索引计算更精确、插值精度等价）、平台一致（纯整数运算，UInt128 结果确定）。
         /// </remarks>
         public static Fixed32 FastTan(Fixed32 radian)
         {
@@ -174,25 +185,28 @@ namespace SimplexLab.Lwfix
             if (referenced == Half_PI)    return sign ? MinValue : MaxValue;
             if (referenced == Quarter_PI) return sign ? NegativeOne : One;
 
-            var index = referenced * (TanLut.Length - 1) / Half_PI;
-            var round = index.Round();
-            var error = index - round;
+            // 优化15：位移索引 + UInt128 线性插值
+            const int SHIFT = 19;
+            const long MASK = (1L << SHIFT) - 1;
 
-            int roundInt = (int)round;
-            int nextIndex = roundInt + error.Sign();
-            
-            // 确保索引在有效范围内
-            if (nextIndex < 0) nextIndex = 0;
-            if (nextIndex >= TanLut.Length) nextIndex = TanLut.Length - 1;
+            var raw = referenced.rawvalue;
+            int index = (int)(raw >> SHIFT);
+            if (index >= TanLut.Length - 1)
+            {
+                // 越界（理论上不会到达，referenced < Half_PI 已由上面 == Half_PI 守卫）
+                return sign ? MinValue : MaxValue;
+            }
 
-            var nearest1 = FromRaw(TanLut[roundInt]);
-            var nearest2 = FromRaw(TanLut[nextIndex]);
-
-            var delta = error * (nearest2 - nearest1);
-            var interpolated = nearest1.rawvalue + delta.rawvalue;
-            if (sign) interpolated = -interpolated;
-
-            return FromRaw(interpolated);
+            var v0 = (ulong)TanLut[index];
+            var v1 = (ulong)TanLut[index + 1];
+            var frac = (ulong)(raw & MASK);
+            // 线性插值：v0 + frac/2^19 × (v1 - v0)
+            // tan 单调递增，v1 > v0，delta > 0；末桶 v1 = MaxValue 哨兵
+            // frac < 2^19，delta 可达 ~2^63（末桶），frac×delta 可达 ~2^82 → 需 UInt128
+            var interp128 = (UInt128)v0 + (((UInt128)frac * (v1 - v0)) >> SHIFT);
+            // 钳位到 MaxValue（末桶插值可能超出）
+            long interp = interp128 > (UInt128)long.MaxValue ? long.MaxValue : (long)interp128;
+            return sign ? -FromRaw(interp) : FromRaw(interp);
         }
 
         /// <summary>

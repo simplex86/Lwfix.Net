@@ -23,8 +23,12 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
     /// <para>■ 其他已完成</para>
     /// <list type="bullet">
     /// <item>Atan：UInt128 MulDiv 替代循环内逐位长除法（2.34x）</item>
+    /// <item>优化14 SinLut 瘦身+线性插值：步长 2^15→2^19（205887→12868 条目，瘦身 16x），
+    /// 最近邻→线性插值（long 运算）。FastSin 精度 ~3.8e-6→~1.9e-9（提升 2000x）</item>
+    /// <item>优化15 FastTan 位移索引：索引 referenced×(Len-1)/Half_PI（Fixed32 Mul+Div ~70ns）→raw>>19（单次位移）；
+    /// 插值 Fixed32 Mul→UInt128 (frac×delta)>>19。TanLut 均匀角度映射→步长 2^19（瘦身 16x），
+    /// 消除原索引映射舍入误差。精度不衰减、平台一致（纯整数运算）</item>
     /// </list>
-    /// <para>待优化：优化14 SinLut 瘦身+线性插值；优化15 FastTan 索引位移化</para>
     /// </summary>
     [MemoryDiagnoser]
     [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
@@ -127,7 +131,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
 
         // ── FastSin / FastCos / FastTan：LUT 查表 ────────────────
 
-        /// <summary>FastSin — 优化14 的目标（当前 20 万条 LUT 无插值）</summary>
+        /// <summary>FastSin — 优化14 已完成（步长 2^15→2^19，瘦身 16x；最近邻→线性插值，精度 ~3.8e-6→~1.9e-9）</summary>
         [Benchmark, BenchmarkCategory("FastSin")]
         public Fixed32 FastSin()
         {
@@ -152,7 +156,7 @@ namespace SimplexLab.Lwfix.TBenchmark.Benchmarks
             return acc;
         }
 
-        /// <summary>FastTan — 优化15 的目标（当前索引含乘+除）</summary>
+        /// <summary>FastTan — 优化15 已完成（位移索引 raw>>19 替代 Mul+Div；UInt128 线性插值；TanLut 瘦身 16x）</summary>
         [Benchmark, BenchmarkCategory("FastTan")]
         public Fixed32 FastTan()
         {

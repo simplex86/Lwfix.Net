@@ -13,4 +13,8 @@
     <ProjectReference Include="..\Lwfix.Net\Lwfix.Net.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Velcro\" />
+  </ItemGroup>
+
 </Project>

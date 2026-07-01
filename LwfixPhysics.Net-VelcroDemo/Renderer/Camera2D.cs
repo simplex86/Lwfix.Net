@@ -69,10 +69,13 @@ public class Camera2D
             float halfW = _screenWidth * 0.5f / ppu;
             float halfH = _screenHeight * 0.5f / ppu;
             // Orthographic with the camera position at the center.
+            // Swap bottom/top to flip Y axis: the original MonoGame samples use
+            // Y-down (screen coordinates) where positive gravity falls downward.
+            // OpenGL orthographic is Y-up by default, so we invert Y to match.
             float left = (float)Position.X - halfW;
             float right = (float)Position.X + halfW;
-            float bottom = (float)Position.Y - halfH;
-            float top = (float)Position.Y + halfH;
+            float bottom = (float)Position.Y + halfH;
+            float top = (float)Position.Y - halfH;
             return Matrix4x4.CreateOrthographicOffCenter(left, right, bottom, top, -1f, 1f);
         }
     }

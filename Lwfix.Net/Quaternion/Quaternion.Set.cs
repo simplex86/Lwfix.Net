@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数 - 设置
@@ -13,6 +15,7 @@
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <param name="w"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Set(T x, T y, T z, T w)
         {
             this.X = x;
@@ -26,6 +29,7 @@
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void SetFromToRotation(FVector3<T> from, FVector3<T> to)
         {
             this = FQuaternion<T>.FromToRotation(from, to);
@@ -35,6 +39,7 @@
         /// 
         /// </summary>
         /// <param name="view"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void SetLookRotation(FVector3<T> view)
         {
             this.SetLookRotation(view, FVector3<T>.Up);
@@ -45,6 +50,7 @@
         /// </summary>
         /// <param name="view"></param>
         /// <param name="upwards"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void SetLookRotation(FVector3<T> view, FVector3<T> upwards)
         {
             //this = FQuaternion<T>.LookRotation(view, upwards);

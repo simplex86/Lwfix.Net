@@ -1,5 +1,6 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -16,6 +17,7 @@ namespace SimplexLab.Lwfix
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> Euler(T x, T y, T z)
         {
             x *= T.DegToRad;
@@ -45,6 +47,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="eulerAngles"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> Euler(FVector3<T> eulerAngles)
         {
             return Euler(eulerAngles.X, eulerAngles.Y, eulerAngles.Z);

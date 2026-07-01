@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量 - 角度
@@ -12,6 +14,7 @@
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T Angle(FVector3<T> from, FVector3<T> to)
         {
             var magnitude = from.Magnitude * to.Magnitude;
@@ -27,6 +30,7 @@
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T SignedAngle(FVector3<T> from, FVector3<T> to, FVector3<T> axis)
         {
             var fx = from.X;

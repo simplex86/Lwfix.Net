@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -59,6 +60,7 @@ namespace SimplexLab.Lwfix
         /// <param name="m42"></param>
         /// <param name="m43"></param>
         /// <param name="m44"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FMatrix4x4(T m11, T m12, T m13, T m14,
                           T m21, T m22, T m23, T m24,
                           T m31, T m32, T m33, T m34,
@@ -86,6 +88,7 @@ namespace SimplexLab.Lwfix
         /// 
         /// </summary>
         /// <param name="matrix"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FMatrix4x4(FMatrix4x4<T> matrix)
         {
             M11 = matrix.M11;

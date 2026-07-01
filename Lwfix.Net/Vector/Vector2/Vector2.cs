@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量
@@ -9,18 +11,19 @@
         /// <summary>
         /// 
         /// </summary>
-        public T X { get; set; } = T.Zero;
+        public T X = T.Zero;
 
         /// <summary>
         /// 
         /// </summary>
-        public T Y { get; set; } = T.Zero;
+        public T Y = T.Zero;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FVector2(T x, T y)
         {
             this.X = x;
@@ -31,6 +34,7 @@
         /// 
         /// </summary>
         /// <param name="other"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FVector2(FVector2<T> other)
         {
             this.X = other.X;

@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -16,6 +17,7 @@ namespace SimplexLab.Lwfix
         /// <summary>
         /// 归一化
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Normalize()
         {
             this = Normalize(this);
@@ -26,6 +28,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="v"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> Normalize(FVector2<T> v)
         {
             var m = v.Magnitude;

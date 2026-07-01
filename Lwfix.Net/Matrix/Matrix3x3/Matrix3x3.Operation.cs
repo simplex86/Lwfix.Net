@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace SimplexLab.Lwfix
 {
     /// <summary>
@@ -12,6 +14,7 @@ namespace SimplexLab.Lwfix
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> operator +(FMatrix3x3<T> lhs, FMatrix3x3<T> rhs)
         {
             var m11 = lhs.M11 + rhs.M11;
@@ -35,6 +38,7 @@ namespace SimplexLab.Lwfix
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> operator -(FMatrix3x3<T> lhs, FMatrix3x3<T> rhs)
         {
             var m11 = lhs.M11 - rhs.M11;
@@ -58,6 +62,7 @@ namespace SimplexLab.Lwfix
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> operator *(FMatrix3x3<T> lhs, FMatrix3x3<T> rhs)
         {
             var m11 = lhs.M11 * rhs.M11 + lhs.M12 * rhs.M21 + lhs.M13 * rhs.M31;

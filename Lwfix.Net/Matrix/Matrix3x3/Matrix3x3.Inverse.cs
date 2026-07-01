@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 3x3矩阵 - 逆
@@ -11,6 +13,7 @@
         /// </summary>
         /// <param name="matrix"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> Inverse(FMatrix3x3<T> matrix)
         {
             var det = matrix.Determinant;

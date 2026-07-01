@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 三维向量 - 三重积
@@ -13,6 +15,7 @@
         /// <param name="b"></param>
         /// <param name="c"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> Multiply3(FVector3<T> a, FVector3<T> b, FVector3<T> c)
         {
             var t = Cross(a, b);

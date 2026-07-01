@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 4x4矩阵 - 行列式
@@ -16,6 +18,7 @@
         /// </summary>
         /// <param name="matrix"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T Determinant(FMatrix4x4<T> matrix)
         {
             // | a b c d |     | f g h |     | e g h |     | e f h |     | e f g |

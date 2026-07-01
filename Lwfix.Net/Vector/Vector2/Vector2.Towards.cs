@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量 - 移动
@@ -13,6 +15,7 @@
         /// <param name="target"></param>
         /// <param name="maxDistanceDelta"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> MoveTowards(FVector2<T> current, FVector2<T> target, T maxDistanceDelta)
         {
             var x = target.X - current.X;

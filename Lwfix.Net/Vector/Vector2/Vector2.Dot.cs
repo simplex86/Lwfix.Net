@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量 - 点乘
@@ -12,6 +14,7 @@
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T Dot(FVector2<T> lhs, FVector2<T> rhs)
         {
             return lhs.X * rhs.X + lhs.Y * rhs.Y;

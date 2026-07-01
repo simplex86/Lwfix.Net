@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量 - 三重积
@@ -13,6 +15,7 @@
         /// <param name="b"></param>
         /// <param name="c"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> Multiply3(FVector2<T> a, FVector2<T> b, FVector2<T> c)
         {
             var z = a.X * b.Y - a.Y * b.X;

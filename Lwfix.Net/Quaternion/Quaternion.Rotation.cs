@@ -1,5 +1,6 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -14,6 +15,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="forward"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> LookRotation(FVector3<T> forward)
         {
             return LookRotation(forward, FVector3<T>.Up);
@@ -25,6 +27,7 @@ namespace SimplexLab.Lwfix
         /// <param name="forward"></param>
         /// <param name="upwards"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> LookRotation(FVector3<T> forward, FVector3<T> upwards)
         {
             return FromMatrix(FMatrix3x3<T>.LookAt(forward, upwards));
@@ -36,6 +39,7 @@ namespace SimplexLab.Lwfix
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> FromToRotation(FVector3<T> from, FVector3<T> to)
         {
             var w = FVector3<T>.Cross(from, to);
@@ -53,6 +57,7 @@ namespace SimplexLab.Lwfix
         /// <param name="to"></param>
         /// <param name="maxDegreesDelta"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> RotateTowards(FQuaternion<T> from, FQuaternion<T> to, T maxDegreesDelta)
         {
             var angle = Angle(from, to);

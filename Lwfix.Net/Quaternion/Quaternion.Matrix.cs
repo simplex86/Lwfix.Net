@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数 - 矩阵
@@ -11,6 +13,7 @@
         /// </summary>
         /// <param name="matrix"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> FromMatrix(FMatrix3x3<T> matrix)
         {
             FQuaternion<T> result;
@@ -61,6 +64,7 @@
         /// </summary>
         /// <param name="quat"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> ToMatrix(FQuaternion<T> quat)
         {
             var matrix = new FMatrix4x4<T>();

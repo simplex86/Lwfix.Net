@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 三维向量 - 最小值
@@ -12,6 +14,7 @@
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> Min(FVector3<T> lhs, FVector3<T> rhs)
         {
             var x = T.Min(lhs.X, rhs.X);

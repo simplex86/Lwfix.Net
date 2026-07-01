@@ -1,5 +1,6 @@
-﻿
+
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -15,6 +16,7 @@ namespace SimplexLab.Lwfix
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> operator +(FQuaternion<T> lhs, FQuaternion<T> rhs)
         {
             var quaternion = new FQuaternion<T>(lhs.X + rhs.X,
@@ -30,6 +32,7 @@ namespace SimplexLab.Lwfix
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> operator -(FQuaternion<T> lhs, FQuaternion<T> rhs)
         {
             var quaternion = new FQuaternion<T>(lhs.X - rhs.X,
@@ -45,6 +48,7 @@ namespace SimplexLab.Lwfix
         /// <param name="quaternion"></param>
         /// <param name="t"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> operator *(FQuaternion<T> quaternion, T t)
         {
             var result = new FQuaternion<T>(quaternion.X * t,
@@ -60,6 +64,7 @@ namespace SimplexLab.Lwfix
         /// <param name="t"></param>
         /// <param name="quaternion"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> operator *(T t, FQuaternion<T> quaternion)
         {
             return quaternion * t;
@@ -71,6 +76,7 @@ namespace SimplexLab.Lwfix
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> operator *(FQuaternion<T> lhs, FQuaternion<T> rhs)
         {
             var x1 = lhs.X;
@@ -97,6 +103,7 @@ namespace SimplexLab.Lwfix
         /// <param name="rotation"></param>
         /// <param name="point"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> operator *(FQuaternion<T> rotation, FVector3<T> point)
         {
             var n1  = rotation.X * 2;

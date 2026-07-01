@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 3x3矩阵
@@ -41,6 +43,7 @@
         /// <param name="m31"></param>
         /// <param name="m32"></param>
         /// <param name="m33"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FMatrix3x3(T m11, T m12, T m13,
                           T m21, T m22, T m23,
                           T m31, T m32, T m33)
@@ -60,6 +63,7 @@
         /// 
         /// </summary>
         /// <param name="matrix"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FMatrix3x3(FMatrix3x3<T> matrix)
         {
             M11 = matrix.M11;

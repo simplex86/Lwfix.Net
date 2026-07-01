@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 3x3矩阵
@@ -12,6 +14,7 @@
         /// <param name="forward"></param>
         /// <param name="upwards"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> LookAt(FVector3<T> forward, FVector3<T> upwards)
         {
             var zaxis = forward;

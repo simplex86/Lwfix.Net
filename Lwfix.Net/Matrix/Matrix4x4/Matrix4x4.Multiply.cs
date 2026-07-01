@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 4x4矩阵
@@ -12,6 +14,7 @@
         /// <param name="point"></param>
         /// <param name="matrix"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> MultiplyPoint(FVector3<T> point, FMatrix4x4<T> matrix)
         {
             var x = (point.X * matrix.M11) + (point.Y * matrix.M21) + (point.Z * matrix.M31) + matrix.M41;
@@ -27,6 +30,7 @@
         /// <param name="vector"></param>
         /// <param name="matrix"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> MultiplyVector(FVector3<T> vector, FMatrix4x4<T> matrix)
         {
             var x = (vector.X * matrix.M11) + (vector.Y * matrix.M21) + (vector.Z * matrix.M31);

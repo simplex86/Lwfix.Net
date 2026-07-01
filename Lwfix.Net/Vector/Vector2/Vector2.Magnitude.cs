@@ -1,5 +1,6 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -25,6 +26,7 @@ namespace SimplexLab.Lwfix
         /// <param name="vector"></param>
         /// <param name="maxMagnitude"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> ClampMagnitude(FVector2<T> vector, T maxMagnitude)
         {
             var magnitude = vector.Magnitude;

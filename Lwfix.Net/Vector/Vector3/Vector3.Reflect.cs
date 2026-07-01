@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 三维向量 - 反射
@@ -12,6 +14,7 @@
         /// <param name="direction"></param>
         /// <param name="normal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> Reflect(FVector3<T> direction, FVector3<T> normal)
         {
             var t = -2 * Dot(normal, direction);

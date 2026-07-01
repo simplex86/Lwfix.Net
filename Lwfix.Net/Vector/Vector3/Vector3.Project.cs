@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 三维向量 - 投影
@@ -12,6 +14,7 @@
         /// <param name="vector"></param>
         /// <param name="normal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> Project(FVector3<T> vector, FVector3<T> normal)
         {
             var magnitude = normal.SqrMagnitude; // Dot(normal, normal);
@@ -24,6 +27,7 @@
         /// <param name="vector"></param>
         /// <param name="planeNormal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> ProjectOnPlane(FVector3<T> vector, FVector3<T> planeNormal)
         {
             return vector - Project(vector, planeNormal);

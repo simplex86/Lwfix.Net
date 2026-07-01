@@ -1,5 +1,6 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -16,6 +17,7 @@ namespace SimplexLab.Lwfix
         /// <param name="target"></param>
         /// <param name="maxDistanceDelta"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> MoveTowards(FVector3<T> current, FVector3<T> target, T maxDistanceDelta)
         {
             var x = target.X - current.X;
@@ -43,6 +45,7 @@ namespace SimplexLab.Lwfix
         /// <param name="maxRadiansDelta"></param>
         /// <param name="maxMagnitudeDelta"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> RotateTowards(FVector3<T> current, FVector3<T> target, T maxRadiansDelta, T maxMagnitudeDelta)
         {
             var from = current.Normalized;

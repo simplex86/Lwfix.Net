@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数
@@ -23,6 +25,7 @@
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <param name="w"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FQuaternion(T x, T y, T z, T w)
         {
             this.X = x;

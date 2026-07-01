@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace SimplexLab.Lwfix
 {
     /// <summary>
@@ -12,6 +14,7 @@ namespace SimplexLab.Lwfix
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> Translate(T x, T y)
         {
             var matrix = new FMatrix3x3<T>(1, 0, 0,
@@ -25,6 +28,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="radians">与 X 轴的夹角（单位：弧度）</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> Rotate(T radians)
         {
             var s = T.Sin(radians);
@@ -42,6 +46,7 @@ namespace SimplexLab.Lwfix
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> Scale(T x, T y)
         {
             var matrix = new FMatrix3x3<T>(x, 0, 0,
@@ -57,6 +62,7 @@ namespace SimplexLab.Lwfix
         /// <param name="y"></param>
         /// <param name="radians"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> TR(T x, T y, T radians)
         {
             var t = Translate(x, y);
@@ -74,6 +80,7 @@ namespace SimplexLab.Lwfix
         /// <param name="sx"></param>
         /// <param name="sy"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> TRS(T tx, T ty, T radians, T sx, T sy)
         {
             var t = Translate(tx, ty);
@@ -89,6 +96,7 @@ namespace SimplexLab.Lwfix
         /// <param name="angle"></param>
         /// <param name="axis"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix3x3<T> AngleAxis(T angle, FVector3<T> axis)
         {
             var x = axis.X;

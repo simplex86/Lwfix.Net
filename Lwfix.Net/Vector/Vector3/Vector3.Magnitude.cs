@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace SimplexLab.Lwfix
 {
     /// <summary>
@@ -16,6 +18,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         public readonly T SqrMagnitude => X * X + Y * Y + Z * Z;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> ClampMagnitude(FVector3<T> vector, T maxMagnitude)
         {
             var magnitude = vector.Magnitude;

@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量 - 旋转
@@ -12,6 +14,7 @@
         /// <param name="vector">向量</param>
         /// <param name="radians">旋转的弧度，以逆时针方向为正</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> Rotate(FVector2<T> vector, T radians)
         {
             var s = T.Sin(radians);

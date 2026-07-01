@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 4x4矩阵 - 投影
@@ -16,6 +18,7 @@
         /// <param name="zNear"></param>
         /// <param name="zFar"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FMatrix4x4<T> Frustum(T left, T right, T bottom, T top, T zNear, T zFar)
         {
             FMatrix4x4<T> matrix = Zero;
@@ -41,6 +44,7 @@
         /// <param name="zNear"></param>
         /// <param name="zFar"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Ortho(T left, T right, T bottom, T top, T zNear, T zFar)
         {
             FMatrix4x4<T> matrix = Zero;
@@ -65,6 +69,7 @@
         /// <param name="zNear"></param>
         /// <param name="zFar"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Perspective(T fov, T aspect, T zNear, T zFar)
         {
             var rad = T.DegreeToRadian(fov * T.Half);

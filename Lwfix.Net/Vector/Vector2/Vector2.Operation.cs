@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -14,6 +14,7 @@ namespace SimplexLab.Lwfix
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator +(FVector2<T> a, FVector2<T> b)
         {
             return new FVector2<T>(a.X + b.X, a.Y + b.Y);
@@ -25,6 +26,7 @@ namespace SimplexLab.Lwfix
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator -(FVector2<T> a, FVector2<T> b)
         {
             return new FVector2<T>(a.X - b.X, a.Y - b.Y);
@@ -36,6 +38,7 @@ namespace SimplexLab.Lwfix
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator *(FVector2<T> a, FVector2<T> b)
         {
             return new FVector2<T>(a.X * b.X, a.Y * b.Y);
@@ -47,6 +50,7 @@ namespace SimplexLab.Lwfix
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator /(FVector2<T> a, FVector2<T> b)
         {
             return new FVector2<T>(a.X / b.X, a.Y / b.Y);
@@ -57,6 +61,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="a"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator -(FVector2<T> a)
         {
             return new FVector2<T>(-a.X, -a.Y);
@@ -68,6 +73,7 @@ namespace SimplexLab.Lwfix
         /// <param name="a"></param>
         /// <param name="d"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator *(FVector2<T> a, T d)
         {
             return new FVector2<T>(a.X * d, a.Y * d);
@@ -79,6 +85,7 @@ namespace SimplexLab.Lwfix
         /// <param name="d"></param>
         /// <param name="a"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator *(T d, FVector2<T> a)
         {
             return a * d;
@@ -90,6 +97,7 @@ namespace SimplexLab.Lwfix
         /// <param name="a"></param>
         /// <param name="d"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector2<T> operator /(FVector2<T> a, T d)
         {
             return new FVector2<T>(a.X / d, a.Y / d);

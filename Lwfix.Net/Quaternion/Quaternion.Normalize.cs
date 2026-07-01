@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数 - 归一化
@@ -9,6 +11,7 @@
         /// <summary>
         /// 归一化
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Normalize()
         {
             this = Normalize(this);
@@ -19,6 +22,7 @@
         /// </summary>
         /// <param name="q"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> Normalize(FQuaternion<T> q)
         {
             var d = Dot(q, q).Sqrt();

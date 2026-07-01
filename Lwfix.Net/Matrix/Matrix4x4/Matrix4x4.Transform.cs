@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace SimplexLab.Lwfix
 {
     /// <summary>
@@ -13,6 +15,7 @@ namespace SimplexLab.Lwfix
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Translate(T x, T y, T z)
         {
             var matrix = new FMatrix4x4<T>(1, 0, 0, 0,
@@ -27,6 +30,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="translation"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Translate(FVector3<T> translation)
         {
             return Translate(translation.X, translation.Y, translation.Z);
@@ -37,6 +41,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="radians">与 X 轴的夹角（单位：弧度）</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Rotate(FQuaternion<T> rotation)
         {
             // Precalculate coordinate products
@@ -81,6 +86,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="radians"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> RotateX(T radians)
         {
             var c = T.Cos(radians);
@@ -119,6 +125,7 @@ namespace SimplexLab.Lwfix
         /// <param name="radians"></param>
         /// <param name="centerPoint"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> RotateX(T radians, FVector3<T> centerPoint)
         {
             var c = T.Cos(radians);
@@ -159,6 +166,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="radians"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> RotateY(T radians)
         {
             var c = T.Cos(radians);
@@ -197,6 +205,7 @@ namespace SimplexLab.Lwfix
         /// <param name="radians"></param>
         /// <param name="centerPoint"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> RotateY(T radians, FVector3<T> centerPoint)
         {
             var c = T.Cos(radians);
@@ -237,6 +246,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="radians"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> RotateZ(T radians)
         {
             var c = T.Cos(radians);
@@ -275,6 +285,7 @@ namespace SimplexLab.Lwfix
         /// <param name="radians"></param>
         /// <param name="centerPoint"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> RotateZ(T radians, FVector3<T> centerPoint)
         {
             var c = T.Cos(radians);
@@ -317,6 +328,7 @@ namespace SimplexLab.Lwfix
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Scale(T x, T y, T z)
         {
             var matrix = new FMatrix4x4<T>(x, 0, 0, 0,
@@ -331,6 +343,7 @@ namespace SimplexLab.Lwfix
         /// </summary>
         /// <param name="scale"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Scale(FVector3<T> scale)
         {
             return Scale(scale.X, scale.Y, scale.Z);
@@ -344,6 +357,7 @@ namespace SimplexLab.Lwfix
         /// <param name="z"></param>
         /// <param name="centerPoint"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Scale(T x, T y, T z, FVector3<T> centerPoint)
         {
             var tx = centerPoint.X * (T.One - x);
@@ -379,6 +393,7 @@ namespace SimplexLab.Lwfix
         /// <param name="scale"></param>
         /// <param name="centerPoint"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> Scale(FVector3<T> scale, FVector3<T> centerPoint)
         {
             var tx = centerPoint.X * (T.One - scale.X);
@@ -417,11 +432,13 @@ namespace SimplexLab.Lwfix
         /// <param name="sx"></param>
         /// <param name="sy"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> TRS(FVector3<T> translation, FQuaternion<T> rotation, FVector3<T> scale)
         {
             return Scale(scale) * Rotate(rotation) * Translate(translation);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> AngleAxis(T angle, FVector3<T> axis)
         {
             // a: angle

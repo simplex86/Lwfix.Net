@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 三维向量 - 插值
@@ -13,9 +15,10 @@
         /// <param name="b"></param>
         /// <param name="t"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> Lerp(FVector3<T> a, FVector3<T> b, T t)
         {
-            
+
             return new FVector3<T>(a.X + (b.X - a.X) * t, a.Y + (b.Y - a.Y) * t, a.Z + (b.Z - a.Z) * t);
         }
 
@@ -26,6 +29,7 @@
         /// <param name="b"></param>
         /// <param name="t"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> ClampLerp(FVector3<T> a, FVector3<T> b, T t)
         {
             t = T.Clamp01(t);

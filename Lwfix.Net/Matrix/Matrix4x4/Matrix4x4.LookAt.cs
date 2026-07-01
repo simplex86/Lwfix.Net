@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 4x4矩阵
@@ -13,6 +15,7 @@
         /// <param name="to"></param>
         /// <param name="up"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FMatrix4x4<T> LookAt(FVector3<T> from, FVector3<T> to, FVector3<T> up)
         {
             return TRS(from, FQuaternion<T>.LookRotation(to - from, up), FVector3<T>.One);

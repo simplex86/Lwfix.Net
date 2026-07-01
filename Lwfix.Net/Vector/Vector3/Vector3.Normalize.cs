@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 二维向量
@@ -14,6 +16,7 @@
         /// <summary>
         /// 归一化
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Normalize()
         {
             this = Normalize(this);
@@ -24,6 +27,7 @@
         /// </summary>
         /// <param name="v"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FVector3<T> Normalize(FVector3<T> v)
         {
             var m = v.Magnitude;
@@ -35,6 +39,7 @@
         /// </summary>
         /// <param name="normal"></param>
         /// <param name="tangent"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void OrthoNormalize(ref FVector3<T> normal, ref FVector3<T> tangent)
         {
             var ortho = Cross(normal, tangent);
@@ -50,6 +55,7 @@
         /// <param name="normal"></param>
         /// <param name="tangent"></param>
         /// <param name="binormal"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void OrthoNormalize(ref FVector3<T> normal, ref FVector3<T> tangent, ref FVector3<T> binormal)
         {
             binormal = Cross(normal, tangent);

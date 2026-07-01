@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数 - 逆
@@ -11,6 +13,7 @@
         /// </summary>
         /// <param name="rotation"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> Inverse(FQuaternion<T> rotation)
         {
             var dx = rotation.X;

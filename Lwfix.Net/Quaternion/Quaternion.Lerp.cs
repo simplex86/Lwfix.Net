@@ -1,4 +1,6 @@
-﻿namespace SimplexLab.Lwfix
+using System.Runtime.CompilerServices;
+
+namespace SimplexLab.Lwfix
 {
     /// <summary>
     /// 四元数 - 插值
@@ -13,6 +15,7 @@
         /// <param name="to"></param>
         /// <param name="t"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> Lerp(FQuaternion<T> from, FQuaternion<T> to, T t)
         {
             var quaternion = from * (1 - t) + to * t;
@@ -30,6 +33,7 @@
         /// <param name="to"></param>
         /// <param name="t"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> ClampLerp(FQuaternion<T> from, FQuaternion<T> to, T t)
         {
             t = T.Clamp01(t);
@@ -43,6 +47,7 @@
         /// <param name="to"></param>
         /// <param name="t"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> Slerp(FQuaternion<T> from, FQuaternion<T> to, T t)
         {
             var dot = Dot(from, to);
@@ -73,6 +78,7 @@
         /// <param name="to"></param>
         /// <param name="t"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> ClampSlerp(FQuaternion<T> from, FQuaternion<T> to, T t)
         {
             t = T.Clamp01(t);

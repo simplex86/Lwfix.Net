@@ -1,5 +1,6 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace SimplexLab.Lwfix
 {
@@ -15,6 +16,7 @@ namespace SimplexLab.Lwfix
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T Angle(FQuaternion<T> a, FQuaternion<T> b)
         {
             var dot = Dot(a, b);
@@ -29,6 +31,7 @@ namespace SimplexLab.Lwfix
         /// <param name="angle"></param>
         /// <param name="axis"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static FQuaternion<T> AngleAxis(T angle, FVector3<T> axis)
         {
             axis = axis * T.DegToRad;

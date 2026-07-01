@@ -855,7 +855,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <param name="position">Source <see cref="Vector3" />.</param>
         /// <param name="matrix">The transformation <see cref="Matrix" />.</param>
         /// <returns>Transformed <see cref="Vector3" />.</returns>
-        public static Vector3 Transform(Vector3 position, Matrix matrix)
+        internal static Vector3 Transform(Vector3 position, Matrix matrix)
         {
             Transform(ref position, ref matrix, out position);
             return position;
@@ -868,7 +868,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <param name="position">Source <see cref="Vector3" />.</param>
         /// <param name="matrix">The transformation <see cref="Matrix" />.</param>
         /// <param name="result">Transformed <see cref="Vector3" /> as an output parameter.</param>
-        public static void Transform(ref Vector3 position, ref Matrix matrix, out Vector3 result)
+        internal static void Transform(ref Vector3 position, ref Matrix matrix, out Vector3 result)
         {
             Fixed32 x = position.X * matrix.M11 + position.Y * matrix.M21 + position.Z * matrix.M31 + matrix.M41;
             Fixed32 y = position.X * matrix.M12 + position.Y * matrix.M22 + position.Z * matrix.M32 + matrix.M42;
@@ -891,7 +891,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// should be written.
         /// </param>
         /// <param name="length">The number of vectors to be transformed.</param>
-        public static void Transform(Vector3[] sourceArray, int sourceIndex, ref Matrix matrix, Vector3[] destinationArray, int destinationIndex, int length)
+        internal static void Transform(Vector3[] sourceArray, int sourceIndex, ref Matrix matrix, Vector3[] destinationArray, int destinationIndex, int length)
         {
             if (sourceArray == null)
                 throw new ArgumentNullException(nameof(sourceArray));
@@ -922,7 +922,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <param name="sourceArray">Source array.</param>
         /// <param name="matrix">The transformation <see cref="Matrix" />.</param>
         /// <param name="destinationArray">Destination array.</param>
-        public static void Transform(Vector3[] sourceArray, ref Matrix matrix, Vector3[] destinationArray)
+        internal static void Transform(Vector3[] sourceArray, ref Matrix matrix, Vector3[] destinationArray)
         {
             if (sourceArray == null)
                 throw new ArgumentNullException(nameof(sourceArray));
@@ -951,7 +951,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <param name="normal">Source <see cref="Vector3" /> which represents a normal vector.</param>
         /// <param name="matrix">The transformation <see cref="Matrix" />.</param>
         /// <returns>Transformed normal.</returns>
-        public static Vector3 TransformNormal(Vector3 normal, Matrix matrix)
+        internal static Vector3 TransformNormal(Vector3 normal, Matrix matrix)
         {
             TransformNormal(ref normal, ref matrix, out normal);
             return normal;
@@ -964,7 +964,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <param name="normal">Source <see cref="Vector3" /> which represents a normal vector.</param>
         /// <param name="matrix">The transformation <see cref="Matrix" />.</param>
         /// <param name="result">Transformed normal as an output parameter.</param>
-        public static void TransformNormal(ref Vector3 normal, ref Matrix matrix, out Vector3 result)
+        internal static void TransformNormal(ref Vector3 normal, ref Matrix matrix, out Vector3 result)
         {
             Fixed32 x = normal.X * matrix.M11 + normal.Y * matrix.M21 + normal.Z * matrix.M31;
             Fixed32 y = normal.X * matrix.M12 + normal.Y * matrix.M22 + normal.Z * matrix.M32;
@@ -987,7 +987,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// should be written.
         /// </param>
         /// <param name="length">The number of normals to be transformed.</param>
-        public static void TransformNormal(Vector3[] sourceArray,
+        internal static void TransformNormal(Vector3[] sourceArray,
                                            int sourceIndex,
                                            ref Matrix matrix,
                                            Vector3[] destinationArray,
@@ -1022,7 +1022,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <param name="sourceArray">Source array.</param>
         /// <param name="matrix">The transformation <see cref="Matrix" />.</param>
         /// <param name="destinationArray">Destination array.</param>
-        public static void TransformNormal(Vector3[] sourceArray, ref Matrix matrix, Vector3[] destinationArray)
+        internal static void TransformNormal(Vector3[] sourceArray, ref Matrix matrix, Vector3[] destinationArray)
         {
             if (sourceArray == null)
                 throw new ArgumentNullException(nameof(sourceArray));

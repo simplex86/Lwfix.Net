@@ -317,7 +317,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Shared
         /// orientation, minimum angle, and volume. From Eric Jordan's convex decomposition library
         /// </summary>
         /// <returns>PolygonError.NoError if there were no error.</returns>
-        public PolygonError CheckPolygon()
+        internal PolygonError CheckPolygon()
         {
             //TODO: TBM
             //if (Count < 3 || Count > Settings.MaxPolygonVertices)
@@ -438,7 +438,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Shared
 
         /// <summary>Transforms the polygon using the defined matrix.</summary>
         /// <param name="transform">The matrix to use as transformation.</param>
-        public void Transform(ref Matrix transform)
+        internal void Transform(ref Matrix transform)
         {
             // Transform main polygon
             for (int i = 0; i < Count; i++)

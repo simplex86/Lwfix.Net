@@ -9,7 +9,7 @@ using SimplexLab.LwfixPhysics.Velcro.Primitives;
 namespace SimplexLab.LwfixPhysics.Velcro.Utilities
 {
     /// <summary>Convert units between display and simulation units.</summary>
-    public static class ConvertUnits
+    internal static class ConvertUnits
     {
         private static Fixed32 _displayUnitsToSimUnitsRatio = (Fixed32)100.0;
         private static Fixed32 _simUnitsToDisplayUnitsRatio = 1 / _displayUnitsToSimUnitsRatio;

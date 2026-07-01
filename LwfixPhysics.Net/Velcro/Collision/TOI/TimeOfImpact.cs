@@ -30,7 +30,7 @@ using SimplexLab.LwfixPhysics.Velcro.Shared;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.TOI
 {
-    public static class TimeOfImpact
+    internal static class TimeOfImpact
     {
         // CCD via the local separating axis method. This seeks progression
         // by computing the largest time at which separation is maintained.

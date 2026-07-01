@@ -11,7 +11,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
     /// Defines how the <see cref="Curve" /> value is determined for position before first point or after the end
     /// point on the <see cref="Curve" />.
     /// </summary>
-    public enum CurveLoopType
+    internal enum CurveLoopType
     {
         /// <summary>
         /// The value of <see cref="Curve" /> will be evaluated as first point for positions before the beginning and end

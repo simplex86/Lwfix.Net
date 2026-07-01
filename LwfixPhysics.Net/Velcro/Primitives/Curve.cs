@@ -16,7 +16,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
 
     // TODO : [TypeConverter(typeof(ExpandableObjectConverter))]
     [DataContract]
-    public class Curve
+    internal class Curve
     {
         /// <summary>Constructs a curve.</summary>
         public Curve()

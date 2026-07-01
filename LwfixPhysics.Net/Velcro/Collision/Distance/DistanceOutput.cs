@@ -4,7 +4,7 @@ using SimplexLab.LwfixPhysics.Velcro.Primitives;
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Distance
 {
     /// <summary>Output for Distance.ComputeDistance().</summary>
-    public struct DistanceOutput
+    internal struct DistanceOutput
     {
         public Fixed32 Distance;
 

@@ -8,7 +8,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.TOI
 {
-    public static class SeparationFunction
+    internal static class SeparationFunction
     {
         public static void Initialize(ref SimplexCache cache, DistanceProxy proxyA, ref Sweep sweepA, DistanceProxy proxyB, ref Sweep sweepB, Fixed32 t1, out Vector2 axis, out Vector2 localPoint, out SeparationFunctionType type)
         {

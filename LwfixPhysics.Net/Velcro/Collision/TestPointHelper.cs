@@ -5,7 +5,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision
 {
-    public static class TestPointHelper
+    internal static class TestPointHelper
     {
         public static bool TestPointCircle(ref Vector2 pos, Fixed32 radius, ref Vector2 point, ref Transform transform)
         {

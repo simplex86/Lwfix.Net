@@ -9,7 +9,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Narrowphase
 {
-    public static class CollideEdge
+    internal static class CollideEdge
     {
         /// <summary>Compute contact points for edge versus circle. This accounts for edge connectivity.</summary>
         /// <param name="manifold">The manifold.</param>

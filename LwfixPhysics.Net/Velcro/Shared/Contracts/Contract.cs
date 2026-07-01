@@ -6,7 +6,7 @@ using SimplexLab.Lwfix;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Shared.Contracts
 {
-    public static class Contract
+    internal static class Contract
     {
         [Conditional("DEBUG")]
         public static void RequireNotNull(object? obj, string message)

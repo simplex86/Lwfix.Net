@@ -35,7 +35,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Collision.Broadphase
     /// not persist pairs. Instead, this reports potentially new pairs. It is up to the client to consume the new pairs and to
     /// track subsequent overlap.
     /// </summary>
-    public class DynamicTreeBroadPhase : IBroadPhase
+    internal class DynamicTreeBroadPhase : IBroadPhase
     {
         public const int NullProxy = -1;
         private int[] _moveBuffer;

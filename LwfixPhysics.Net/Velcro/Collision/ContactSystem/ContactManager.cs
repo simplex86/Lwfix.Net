@@ -47,7 +47,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Collision.ContactSystem
         public BroadphaseHandler OnBroadphaseCollision;
 
         /// <summary>Fires after the solver has run</summary>
-        public PostSolveHandler PostSolve;
+        internal PostSolveHandler PostSolve;
 
         /// <summary>Fires before the solver runs</summary>
         public PreSolveHandler PreSolve;

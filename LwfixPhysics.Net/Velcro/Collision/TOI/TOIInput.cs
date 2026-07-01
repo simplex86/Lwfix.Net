@@ -4,7 +4,7 @@ using SimplexLab.LwfixPhysics.Velcro.Collision.Distance;
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.TOI
 {
     /// <summary>Input parameters for CalculateTimeOfImpact</summary>
-    public struct TOIInput
+    internal struct TOIInput
     {
         public DistanceProxy ProxyA;
         public DistanceProxy ProxyB;

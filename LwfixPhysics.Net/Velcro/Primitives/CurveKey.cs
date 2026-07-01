@@ -11,7 +11,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
 {
     /// <summary>Key point on the <see cref="Curve" />.</summary>
     [DataContract]
-    public class CurveKey : IEquatable<CurveKey>, IComparable<CurveKey>
+    internal class CurveKey : IEquatable<CurveKey>, IComparable<CurveKey>
     {
         /// <summary>Compares whether two <see cref="CurveKey" /> instances are not equal.</summary>
         /// <param name="value1"><see cref="CurveKey" /> instance on the left of the not equal sign.</param>

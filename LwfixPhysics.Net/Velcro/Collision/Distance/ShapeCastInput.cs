@@ -5,7 +5,7 @@ using SimplexLab.LwfixPhysics.Velcro.Primitives;
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Distance
 {
     /// <summary>Input parameters for b2ShapeCast</summary>
-    public struct ShapeCastInput
+    internal struct ShapeCastInput
     {
         public DistanceProxy ProxyA;
         public DistanceProxy ProxyB;

@@ -11,7 +11,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
     /// Defines the different tangent types to be calculated for <see cref="CurveKey" /> points in a
     /// <see cref="Curve" />.
     /// </summary>
-    public enum CurveTangent
+    internal enum CurveTangent
     {
         /// <summary>The tangent which always has a value equal to zero.</summary>
         Flat,

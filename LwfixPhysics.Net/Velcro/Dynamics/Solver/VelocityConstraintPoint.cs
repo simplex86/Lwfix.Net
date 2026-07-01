@@ -3,7 +3,7 @@ using SimplexLab.LwfixPhysics.Velcro.Primitives;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Dynamics.Solver
 {
-    public sealed class VelocityConstraintPoint
+    internal sealed class VelocityConstraintPoint
     {
         public Fixed32 NormalImpulse;
         public Fixed32 NormalMass;

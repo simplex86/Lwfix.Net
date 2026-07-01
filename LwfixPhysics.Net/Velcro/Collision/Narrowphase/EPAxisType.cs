@@ -2,7 +2,7 @@ using SimplexLab.Lwfix;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Narrowphase
 {
-    public enum EPAxisType
+    internal enum EPAxisType
     {
         Unknown,
         EdgeA,

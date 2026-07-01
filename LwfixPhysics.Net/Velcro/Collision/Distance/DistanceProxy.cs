@@ -7,7 +7,7 @@ using SimplexLab.LwfixPhysics.Velcro.Primitives;
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Distance
 {
     /// <summary>A distance proxy is used by the GJK algorithm. It encapsulates any shape.</summary>
-    public struct DistanceProxy
+    internal struct DistanceProxy
     {
         internal readonly Fixed32 _radius;
         internal readonly Vector2[] _vertices;

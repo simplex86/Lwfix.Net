@@ -6,7 +6,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Narrowphase
 {
-    public static class CollideCircle
+    internal static class CollideCircle
     {
         /// <summary>Compute the collision manifold between two circles.</summary>
         public static void CollideCircles(ref Manifold manifold, CircleShape circleA, ref Transform xfA, CircleShape circleB, ref Transform xfB)

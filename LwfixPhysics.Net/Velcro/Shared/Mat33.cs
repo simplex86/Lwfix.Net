@@ -5,7 +5,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 namespace SimplexLab.LwfixPhysics.Velcro.Shared
 {
     /// <summary>A 3-by-3 matrix. Stored in column-major order.</summary>
-    public struct Mat33
+    internal struct Mat33
     {
         public Vector3 ex, ey, ez;
 

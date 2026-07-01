@@ -8,7 +8,7 @@ using SimplexLab.Lwfix;
 namespace SimplexLab.LwfixPhysics.Velcro.Primitives
 {
     /// <summary>Defines the continuity of keys on a <see cref="Curve" />.</summary>
-    public enum CurveContinuity
+    internal enum CurveContinuity
     {
         /// <summary>Interpolation can be used between this key and the next.</summary>
         Smooth,

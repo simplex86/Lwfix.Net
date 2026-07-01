@@ -5,7 +5,7 @@ using SimplexLab.LwfixPhysics.Velcro.Primitives;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Dynamics.Solver
 {
-    public sealed class ContactPositionConstraint
+    internal sealed class ContactPositionConstraint
     {
         public int IndexA;
         public int IndexB;

@@ -5,7 +5,7 @@ using SimplexLab.Lwfix;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Shared.Optimization
 {
-    public struct FixedArray3<T> : IEnumerable<T>
+    internal struct FixedArray3<T> : IEnumerable<T>
     {
         public T Value0, Value1, Value2;
 

@@ -39,7 +39,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Collision.Distance
     /// The Gilbert–Johnson–Keerthi distance algorithm that provides the distance between shapes. Using Voronoi
     /// regions (Christer Ericson) and Barycentric coordinates.
     /// </summary>
-    public static class DistanceGJK
+    internal static class DistanceGJK
     {
         /// <summary>
         /// The number of calls made to the ComputeDistance() function. Note: This is only activated when

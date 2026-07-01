@@ -9,7 +9,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Utilities
     /// Collection of helper methods for misc collisions. Does float tolerance and line collisions with lines and
     /// AABBs.
     /// </summary>
-    public static class LineUtils
+    internal static class LineUtils
     {
         public static Fixed32 DistanceBetweenPointAndLineSegment(ref Vector2 point, ref Vector2 start, ref Vector2 end)
         {

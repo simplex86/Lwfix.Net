@@ -2,7 +2,7 @@ using SimplexLab.Lwfix;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Dynamics.Joints.Misc
 {
-    public enum LimitState
+    internal enum LimitState
     {
         Inactive,
         AtLower,

@@ -128,7 +128,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Utilities
         }
 
         /// <summary>Multiply a matrix times a vector.</summary>
-        public static Vector3 Mul(Mat33 a, Vector3 v)
+        internal static Vector3 Mul(Mat33 a, Vector3 v)
         {
             return v.X * a.ex + v.Y * a.ey + v.Z * a.ez;
         }
@@ -162,7 +162,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Utilities
         }
 
         /// <summary>Multiply a matrix times a vector.</summary>
-        public static Vector2 Mul22(Mat33 a, Vector2 v)
+        internal static Vector2 Mul22(Mat33 a, Vector2 v)
         {
             return new Vector2(a.ex.X * v.X + a.ey.X * v.Y, a.ex.Y * v.X + a.ey.Y * v.Y);
         }
@@ -259,7 +259,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Utilities
 
         public static Fixed32 Clamp(Fixed32 a, Fixed32 low, Fixed32 high)
         {
-            return Max(low, Min(a, high));
+            return FMath.Clamp(a, low, high);
         }
 
         public static Vector2 Clamp(Vector2 a, Vector2 low, Vector2 high)

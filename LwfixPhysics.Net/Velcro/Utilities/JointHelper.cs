@@ -3,7 +3,7 @@ using SimplexLab.LwfixPhysics.Velcro.Dynamics;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Utilities
 {
-    public static class JointHelper
+    internal static class JointHelper
     {
         public static void LinearStiffness(Fixed32 frequencyHertz, Fixed32 dampingRatio, Body bodyA, Body bodyB, out Fixed32 stiffness, out Fixed32 damping)
         {

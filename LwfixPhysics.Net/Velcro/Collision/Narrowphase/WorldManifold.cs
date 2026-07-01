@@ -6,7 +6,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Narrowphase
 {
-    public static class WorldManifold
+    internal static class WorldManifold
     {
         /// <summary>
         /// Evaluate the manifold with supplied transforms. This assumes modest motion from the original state. This does

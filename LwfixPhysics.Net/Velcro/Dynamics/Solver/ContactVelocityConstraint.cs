@@ -5,7 +5,7 @@ using SimplexLab.LwfixPhysics.Velcro.Shared;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Dynamics.Solver
 {
-    public sealed class ContactVelocityConstraint
+    internal sealed class ContactVelocityConstraint
     {
         public int ContactIndex;
         public Fixed32 Friction;

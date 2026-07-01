@@ -14,7 +14,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
     /// <summary>Describes a 32-bit packed color.</summary>
     [DataContract]
     [DebuggerDisplay("{DebugDisplayString,nq}")]
-    public struct Color : IEquatable<Color>
+    internal struct Color : IEquatable<Color>
     {
         static Color()
         {

@@ -39,19 +39,19 @@ namespace SimplexLab.LwfixPhysics.Velcro.Extensions.DebugView
         }
 
         /// <summary>Draw a closed polygon provided in CCW order.</summary>
-        public abstract void DrawPolygon(Vector2[] vertices, int count, Color color, bool closed = true);
+        internal abstract void DrawPolygon(Vector2[] vertices, int count, Color color, bool closed = true);
 
         /// <summary>Draw a solid closed polygon provided in CCW order.</summary>
-        public abstract void DrawSolidPolygon(Vector2[] vertices, int count, Color color, bool outline = true);
+        internal abstract void DrawSolidPolygon(Vector2[] vertices, int count, Color color, bool outline = true);
 
         /// <summary>Draw a circle.</summary>
-        public abstract void DrawCircle(Vector2 center, Fixed32 radius, Color color);
+        internal abstract void DrawCircle(Vector2 center, Fixed32 radius, Color color);
 
         /// <summary>Draw a solid circle.</summary>
-        public abstract void DrawSolidCircle(Vector2 center, Fixed32 radius, Vector2 axis, Color color);
+        internal abstract void DrawSolidCircle(Vector2 center, Fixed32 radius, Vector2 axis, Color color);
 
         /// <summary>Draw a line segment.</summary>
-        public abstract void DrawSegment(Vector2 start, Vector2 end, Color color);
+        internal abstract void DrawSegment(Vector2 start, Vector2 end, Color color);
 
         /// <summary>Draw a transform. Choose your own length scale.</summary>
         /// <param name="transform">The transform.</param>

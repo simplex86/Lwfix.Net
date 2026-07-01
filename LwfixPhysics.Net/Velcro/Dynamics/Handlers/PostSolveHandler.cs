@@ -4,5 +4,5 @@ using SimplexLab.LwfixPhysics.Velcro.Dynamics.Solver;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Dynamics.Handlers
 {
-    public delegate void PostSolveHandler(Contact contact, ContactVelocityConstraint impulse);
+    internal delegate void PostSolveHandler(Contact contact, ContactVelocityConstraint impulse);
 }

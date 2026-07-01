@@ -2,7 +2,7 @@ using SimplexLab.Lwfix;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Shared
 {
-    public enum PolygonError
+    internal enum PolygonError
     {
         /// <summary>There were no errors in the polygon</summary>
         NoError,

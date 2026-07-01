@@ -5,7 +5,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision
 {
-    public static class AABBHelper
+    internal static class AABBHelper
     {
         public static void ComputeEdgeAABB(ref Vector2 start, ref Vector2 end, ref Transform transform, out AABB aabb)
         {

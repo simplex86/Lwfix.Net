@@ -9,6 +9,6 @@ namespace SimplexLab.LwfixPhysics.Velcro.Interfaces
     public interface IDebugView
     {
         void DrawJoint(Joint joint);
-        void DrawShape(Shape shape, ref Transform transform, Color color);
+        internal void DrawShape(Shape shape, ref Transform transform, Color color);
     }
 }

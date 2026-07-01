@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="LwfixPhysics.Net-xUnit" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Velcro\" />
   </ItemGroup>
 

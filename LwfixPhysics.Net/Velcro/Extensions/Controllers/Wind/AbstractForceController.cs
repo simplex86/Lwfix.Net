@@ -42,7 +42,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Extensions.Controllers.Wind
         }
 
         /// <summary>Curve to be used for Decay in Curve mode</summary>
-        public Curve DecayCurve;
+        internal Curve DecayCurve;
 
         /// <summary>The Forcetype of the instance</summary>
         public ForceTypes ForceType;
@@ -54,7 +54,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Extensions.Controllers.Wind
         /// Curve used by Curve Mode as an animated multiplier for the force strength. Only positions between 0 and 1 are
         /// considered as that range is stretched to have ImpulseLength.
         /// </summary>
-        public Curve StrengthCurve;
+        internal Curve StrengthCurve;
 
         protected AbstractForceController() : base(ControllerType.AbstractForceController)
         {

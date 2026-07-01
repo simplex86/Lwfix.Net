@@ -7,7 +7,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Dynamics.Solver
 {
-    public static class PositionSolverManifold
+    internal static class PositionSolverManifold
     {
         public static void Initialize(ContactPositionConstraint pc, ref Transform xfA, ref Transform xfB, int index, out Vector2 normal, out Vector2 point, out Fixed32 separation)
         {

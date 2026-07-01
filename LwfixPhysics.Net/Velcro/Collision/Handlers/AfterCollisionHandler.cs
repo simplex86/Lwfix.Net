@@ -5,5 +5,5 @@ using SimplexLab.LwfixPhysics.Velcro.Dynamics.Solver;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Handlers
 {
-    public delegate void AfterCollisionHandler(Fixture fixtureA, Fixture fixtureB, Contact contact, ContactVelocityConstraint impulse);
+    internal delegate void AfterCollisionHandler(Fixture fixtureA, Fixture fixtureB, Contact contact, ContactVelocityConstraint impulse);
 }

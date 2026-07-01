@@ -8,7 +8,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision
 {
-    public static class RayCastHelper
+    internal static class RayCastHelper
     {
         public static bool RayCastEdge(ref Vector2 start, ref Vector2 end, bool oneSided, ref RayCastInput input, ref Transform transform, out RayCastOutput output)
         {

@@ -37,7 +37,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Collision.Broadphase
     /// AABB is bigger than the client object. This allows the client object to move by small amounts without triggering a tree
     /// update. Nodes are pooled and relocatable, so we use node indices rather than pointers.
     /// </summary>
-    public class DynamicTree<T>
+    internal class DynamicTree<T>
     {
         public const int NullNode = -1;
         private int _freeList;

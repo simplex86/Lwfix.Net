@@ -17,7 +17,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
     /// </summary>
     [DataContract]
     [DebuggerDisplay("{DebugDisplayString,nq}")]
-    public struct Matrix : IEquatable<Matrix>
+    internal struct Matrix : IEquatable<Matrix>
     {
         /// <summary>Constructs a matrix.</summary>
         /// <param name="m11">A first row and first column value.</param>

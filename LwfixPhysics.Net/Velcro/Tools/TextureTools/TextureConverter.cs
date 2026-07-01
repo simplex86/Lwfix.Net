@@ -1093,7 +1093,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Tools.TextureTools
         }
 
         /// <summary>Can be used for scaling.</summary>
-        public Matrix Transform
+        internal Matrix Transform
         {
             get { return _transform; }
             set { _transform = value; }
@@ -1135,7 +1135,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Tools.TextureTools
             Initialize(null, null, null, null, null, null, null, null);
         }
 
-        public TextureConverter(byte? alphaTolerance, Fixed32? hullTolerance,
+        internal TextureConverter(byte? alphaTolerance, Fixed32? hullTolerance,
                                 bool? holeDetection, bool? multipartDetection, bool? pixelOffsetOptimization, Matrix? transform)
         {
             Initialize(null, null, alphaTolerance, hullTolerance, holeDetection,
@@ -1147,7 +1147,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Tools.TextureTools
             Initialize(data, width, null, null, null, null, null, null);
         }
 
-        public TextureConverter(uint[] data, int width, byte? alphaTolerance,
+        internal TextureConverter(uint[] data, int width, byte? alphaTolerance,
                                 Fixed32? hullTolerance, bool? holeDetection, bool? multipartDetection,
                                 bool? pixelOffsetOptimization, Matrix? transform)
         {

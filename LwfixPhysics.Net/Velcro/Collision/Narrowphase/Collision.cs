@@ -32,7 +32,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Narrowphase
 {
     /// <summary>Collision methods</summary>
-    public static class Collision
+    internal static class Collision
     {
         /// <summary>Test overlap between the two shapes.</summary>
         /// <param name="shapeA">The first shape.</param>

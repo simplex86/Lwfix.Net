@@ -9,7 +9,7 @@ using SimplexLab.Lwfix;
 namespace SimplexLab.LwfixPhysics.Velcro.Primitives
 {
     /// <summary>Contains commonly used precalculated values and mathematical operations.</summary>
-    public static class MathHelper
+    internal static class MathHelper
     {
         /// <summary>Represents the mathematical constant e(2.71828175).</summary>
         public static readonly Fixed32 E = Fixed32.E;
@@ -82,14 +82,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <returns>The clamped value.</returns>
         public static Fixed32 Clamp(Fixed32 value, Fixed32 min, Fixed32 max)
         {
-            // First we check to see if we're greater than the max
-            value = value > max ? max : value;
-
-            // Then we check to see if we're less than the min.
-            value = value < min ? min : value;
-
-            // There's no check to see if min > max.
-            return value;
+            return FMath.Clamp(value, min, max);
         }
 
         /// <summary>Restricts a value to be within a specified range.</summary>
@@ -155,7 +148,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// </remarks>
         public static Fixed32 Lerp(Fixed32 value1, Fixed32 value2, Fixed32 amount)
         {
-            return value1 + (value2 - value1) * amount;
+            return FMath.Lerp(value1, value2, amount);
         }
 
         /// <summary>
@@ -188,7 +181,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <returns>The greater value.</returns>
         public static Fixed32 Max(Fixed32 value1, Fixed32 value2)
         {
-            return value1 > value2 ? value1 : value2;
+            return FMath.Max(value1, value2);
         }
 
         /// <summary>Returns the greater of two values.</summary>
@@ -206,7 +199,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <returns>The lesser value.</returns>
         public static Fixed32 Min(Fixed32 value1, Fixed32 value2)
         {
-            return value1 < value2 ? value1 : value2;
+            return FMath.Min(value1, value2);
         }
 
         /// <summary>Returns the lesser of two values.</summary>
@@ -225,13 +218,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <returns>Interpolated value.</returns>
         public static Fixed32 SmoothStep(Fixed32 value1, Fixed32 value2, Fixed32 amount)
         {
-            // It is expected that 0 < amount < 1
-            // If amount < 0, return value1
-            // If amount > 1, return value2
-            Fixed32 result = Clamp(amount, Fixed32.Zero, Fixed32.One);
-            result = Hermite(value1, Fixed32.Zero, value2, Fixed32.Zero, result);
-
-            return result;
+            return FMath.SmoothStep(value1, value2, amount);
         }
 
         /// <summary>Converts radians to degrees.</summary>
@@ -240,7 +227,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <remarks>This method uses double precission internally, though it returns single float Factor = 180 / pi</remarks>
         public static Fixed32 ToDegrees(Fixed32 radians)
         {
-            return radians * (Fixed32)57.295779513082320876798154814105;
+            return FMath.RadianToDegree(radians);
         }
 
         /// <summary>Converts degrees to radians.</summary>
@@ -249,7 +236,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Primitives
         /// <remarks>This method uses double precission internally, though it returns single float Factor = pi / 180</remarks>
         public static Fixed32 ToRadians(Fixed32 degrees)
         {
-            return degrees * (Fixed32)0.017453292519943295769236907684886;
+            return FMath.DegreeToRadian(degrees);
         }
 
         /// <summary>Reduces a given angle to a value between π and -π.</summary>

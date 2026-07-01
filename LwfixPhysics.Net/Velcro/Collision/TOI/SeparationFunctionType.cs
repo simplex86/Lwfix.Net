@@ -2,7 +2,7 @@ using SimplexLab.Lwfix;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.TOI
 {
-    public enum SeparationFunctionType
+    internal enum SeparationFunctionType
     {
         Points,
         FaceA,

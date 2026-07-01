@@ -4,7 +4,7 @@ using SimplexLab.LwfixPhysics.Velcro.Primitives;
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Narrowphase
 {
     /// <summary>Reference face used for clipping</summary>
-    public struct ReferenceFace
+    internal struct ReferenceFace
     {
         public int i1, i2;
         public Vector2 v1, v2;

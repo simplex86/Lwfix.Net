@@ -9,7 +9,7 @@ using SimplexLab.LwfixPhysics.Velcro.Utilities;
 
 namespace SimplexLab.LwfixPhysics.Velcro.Collision.Narrowphase
 {
-    public static class CollidePolygon
+    internal static class CollidePolygon
     {
         /// <summary>Compute the collision manifold between two polygons.</summary>
         public static void CollidePolygons(ref Manifold manifold, PolygonShape polyA, ref Transform xfA, PolygonShape polyB, ref Transform xfB)

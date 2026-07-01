@@ -55,7 +55,7 @@ namespace SimplexLab.LwfixPhysics.Velcro.Dynamics
         internal Shape _shape;
 
         /// <summary>Fires after two shapes has collided and are solved. This gives you a chance to get the impact force.</summary>
-        public AfterCollisionHandler AfterCollision;
+        internal AfterCollisionHandler AfterCollision;
 
         /// <summary>Fires when two fixtures are close to each other. Due to how the broadphase works, this can be quite inaccurate
         /// as shapes are approximated using AABBs.</summary>

@@ -56,9 +56,9 @@ public sealed class InputHelper
     public void Update()
     {
         _curKeys.Clear();
-        // Silk.NET 2.x IKeyboard has no PressedKeys collection; poll IsKeyPressed
-        // for every Key enum value to build the current-frame pressed set.
-        foreach (Key k in Enum.GetValues<Key>())
+        // Only poll keys the backend actually supports; passing unsupported
+        // enum values (e.g. -1) to IsKeyPressed throws GlfwException.
+        foreach (Key k in _keyboard.SupportedKeys)
         {
             if (_keyboard.IsKeyPressed(k))
                 _curKeys.Add(k);
